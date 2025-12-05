@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;E8_13_mt9v03x_ips114_display_demo/code/Self_servo.c&apos; to &apos;Self_Servo.c&apos;" description="Rename resource &apos;Self_servo.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="code/Self_servo.c" name="Self_Servo.c" stamp="1764941553467" updateReferences="true"/>
+</session>
