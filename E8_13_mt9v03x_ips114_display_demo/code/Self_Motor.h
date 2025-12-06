@@ -14,8 +14,49 @@
 #define DIR_L2              (P21_4)
 #define PWM_L2              (ATOM0_CH3_P21_5)
 
+//元素枚举
+typedef enum
+{
+    //无
+    Element_Null,
+    //圆环
+    Circle_LeftSide,
+    Circle_RightSide,
+    //三岔
+    ThreeFork,
+    //十字
+    Centre_Cross,
+    Left_Cross,
+    Right_Cross,
+    //断路
+    Open_Circuit,
+    //路障
+    Left_Block,
+    Right_Block,
+    //车库
+    Garage,
+    Garage_Out,
+    //坡道
+    Ramp
+
+}Element_enum;
+
+//锁定枚举
+typedef enum
+{
+    UnLock,
+    Lock
+}Lock_enum;
+
+//元素结构体
+typedef struct
+{
+    Element_enum Name;
+    Lock_enum Lock;
+    uint8 State;
+}Element_Type;
+
 void self_motor_init(void);
 void self_motor_process(void);
-
 
 #endif // DEBUG

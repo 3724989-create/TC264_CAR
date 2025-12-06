@@ -1,0 +1,120 @@
+#include "Self_mtv90x.h"
+
+#define row1 70
+#define col1 188
+uint8 Process_Array[row1][col1];
+
+void self_mtv90x_init(void)
+{
+    ips114_init();
+    ips114_show_string(0, 0, "mt9v03x init.");
+    while(1)
+    {
+        if(mt9v03x_init())
+            ips114_show_string(0, 16, "mt9v03x reinit.");
+        else
+            break;
+        system_delay_ms(500);                                     // 短延时快速闪灯表示异常
+    }
+
+}
+
+uint8 my_adapt_threshold(uint8 *image,uint16 col,uint16 row)
+{
+    #define GrayScale 256
+    uint16 width = col;
+    uint16 height = row;
+    int pixelCount[GrayScale];
+    float pixelPRo[GrayScale];
+    int i, j, pixelSum = (width) * (height - 60) / 9;
+    uint8 threshold = 0;
+    uint8* data = image;
+    uint32 gray_sum = 0;
+    float w0, w1, u0tmp, u1tmp, u0, u1, u, deltaTmp, deltaMax = 0;
+
+    for (i = 0; i < GrayScale; i++)
+    {
+        pixelCount[i] = 0;
+        pixelPRo[i] = 0;
+    }
+    //统计灰度级中每个像素在整幅图像中的个数
+    for ( i = 10; i < height - 50; i += 3)
+    {
+        for (j = 0; j < width; j += 3)
+        {
+            pixelCount[(int)data[i * width + j]]++; //将当前点的像素值作为计数数组值下标
+            gray_sum += (int)data[i * width + j];    //灰度值总和
+        }
+    }
+
+    //计算每个像素值的点在正负图像中的比例
+
+    for ( i = 0; i < GrayScale; i++)
+    {
+        pixelPRo[i] = (float)pixelCount[i] / pixelSum;
+    }
+    
+    w0 = w1 = u0tmp = u1tmp = u0 = u1 = u = deltaTmp = 0;
+    for(j = 0; j < GrayScale; j++)    //当前尝试阈值
+    {
+        w0 += pixelPRo[j];      //背景部分每个灰度值的像素点所占比例之和，即背景部分的比例
+        u0tmp += j * pixelPRo[j];   //背景部分，每个灰度值点的比例
+
+        w1 = 1 - w0;
+        u1tmp = gray_sum / pixelSum - u0tmp;
+
+        u0 = u0tmp / w0;    //背景平均灰度
+        u1 = u1tmp / w1;    //前景平均灰度
+        u = u0tmp + u1tmp;
+        deltaTmp = w0 * pow((u0 - u), 2) + w1 * pow((u1 - u), 2); //计算最大类间方差
+        if(deltaTmp > deltaMax)
+        {
+            deltaMax = deltaTmp;
+            threshold = (uint8)j;
+        }
+        if(deltaTmp < deltaMax)
+        {
+            break;
+        }
+    }
+    return threshold;
+}
+
+uint8 OTSU_Th;
+uint8 Image_Value = 80;
+void Binarization(void)
+{
+    uint8 threshold = 0;
+    threshold = Limit_ab_uint8(my_adapt_threshold(mt9v03x_image[0], MT9V03X_W, MT9V03X_H), Image_Value, 250);
+    OTSU_Th = threshold;
+    float zenyi = 0, zenyj = 0;
+
+    for(int Y = 10; Y < 10 + row1; Y++)
+    {
+        if(Y < 60)
+        {
+            zenyi = 4;
+        }
+
+        for(int X = 0; X < col1; X++)
+        {
+            zenyj = (float)abs(X - 93) / 92.0 * 12.0;
+            Process_Array[Y - 10][X] = (mt9v03x_image[Y][X] > OTSU_Th + zenyi - zenyj) ? 0xff : 0x00; //1白 0黑
+            //使得边缘区域的像素更容易满足 mt9v03x_image[Y][X] > Threshold 的条件，从而更容易被判断为白色（背景）
+        }
+    }
+    
+
+}
+
+void self_mtv90x_process(void)
+{
+    if(mt9v03x_finish_flag)
+    {
+        //ips114_displayimage03x((const uint8 *)mt9v03x_image, MT9V03X_W, MT9V03X_H);        // 显示原始图像
+        Binarization();
+        //ips114_displayimage03x((const uint8 *)Process_Array, MT9V03X_W, MT9V03X_H);
+        ips114_show_gray_image(0, 0, (const uint8 *)Process_Array, col1, row1, col1, row1, 0);       // 显示灰度图像
+        mt9v03x_finish_flag = 0;
+    }
+}
