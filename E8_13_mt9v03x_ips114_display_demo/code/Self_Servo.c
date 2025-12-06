@@ -1,5 +1,5 @@
 
-#include "Slef_Servo.h"
+#include "Self_Servo.h"
 
 void self_servo_init(void)
 {

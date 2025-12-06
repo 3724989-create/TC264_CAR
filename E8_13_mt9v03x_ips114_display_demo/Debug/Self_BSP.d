@@ -326,11 +326,13 @@ Self_BSP.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\librari
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant.h" :
 Self_BSP.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant_interface.h"
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant_interface.h" :
-Self_BSP.o :	..\code\Slef_Servo.h
-..\code\Slef_Servo.h :
+Self_BSP.o :	..\code\Self_Servo.h
+..\code\Self_Servo.h :
 Self_BSP.o :	..\code\Self_BSP.h
 ..\code\Self_BSP.h :
 Self_BSP.o :	..\code\Self_mtv90x.h
 ..\code\Self_mtv90x.h :
 Self_BSP.o :	..\code\Self_Motor.h
 ..\code\Self_Motor.h :
+Self_BSP.o :	..\code\self_math.h
+..\code\self_math.h :

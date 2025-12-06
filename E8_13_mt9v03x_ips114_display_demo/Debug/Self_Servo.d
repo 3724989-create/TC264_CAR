@@ -1,7 +1,7 @@
 Self_Servo.o :	../code/Self_Servo.c
 ../code/Self_Servo.c :
-Self_Servo.o :	..\code\Slef_Servo.h
-..\code\Slef_Servo.h :
+Self_Servo.o :	..\code\Self_Servo.h
+..\code\Self_Servo.h :
 Self_Servo.o :	..\code\Self_BSP.h
 ..\code\Self_BSP.h :
 Self_Servo.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_common\zf_common_headfile.h"
@@ -328,11 +328,13 @@ Self_Servo.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libra
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant.h" :
 Self_Servo.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant_interface.h"
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant_interface.h" :
-Self_Servo.o :	..\code\Slef_Servo.h
-..\code\Slef_Servo.h :
+Self_Servo.o :	..\code\Self_Servo.h
+..\code\Self_Servo.h :
 Self_Servo.o :	..\code\Self_mtv90x.h
 ..\code\Self_mtv90x.h :
 Self_Servo.o :	..\code\Self_BSP.h
 ..\code\Self_BSP.h :
 Self_Servo.o :	..\code\Self_Motor.h
 ..\code\Self_Motor.h :
+Self_Servo.o :	..\code\self_math.h
+..\code\self_math.h :

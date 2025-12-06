@@ -326,11 +326,13 @@ cpu0_main.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\librar
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant.h" :
 cpu0_main.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant_interface.h"
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant_interface.h" :
-cpu0_main.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\Slef_Servo.h"
-"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\Slef_Servo.h" :
+cpu0_main.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\Self_Servo.h"
+"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\Self_Servo.h" :
 cpu0_main.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\Self_BSP.h"
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\Self_BSP.h" :
 cpu0_main.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\Self_mtv90x.h"
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\Self_mtv90x.h" :
 cpu0_main.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\Self_Motor.h"
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\Self_Motor.h" :
+cpu0_main.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\self_math.h"
+"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\self_math.h" :

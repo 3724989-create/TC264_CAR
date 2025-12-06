@@ -328,11 +328,13 @@ Self_Motor.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libra
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant.h" :
 Self_Motor.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant_interface.h"
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant_interface.h" :
-Self_Motor.o :	..\code\Slef_Servo.h
-..\code\Slef_Servo.h :
+Self_Motor.o :	..\code\Self_Servo.h
+..\code\Self_Servo.h :
 Self_Motor.o :	..\code\Self_BSP.h
 ..\code\Self_BSP.h :
 Self_Motor.o :	..\code\Self_mtv90x.h
 ..\code\Self_mtv90x.h :
 Self_Motor.o :	..\code\Self_Motor.h
 ..\code\Self_Motor.h :
+Self_Motor.o :	..\code\self_math.h
+..\code\self_math.h :

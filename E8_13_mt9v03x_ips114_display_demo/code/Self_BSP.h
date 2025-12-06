@@ -3,9 +3,10 @@
 
 #include "zf_common_headfile.h"
 
-#include "Slef_Servo.h"
+#include "Self_Servo.h"
 #include "Self_mtv90x.h"
 #include "Self_Motor.h"
+#include "self_math.h"
 
 void all_init(void);
 
