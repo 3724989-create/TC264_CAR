@@ -135,16 +135,18 @@ void Binarization(void)
 #define Normal   1
 #define UnNormal 2
 
-#define Limit_Range  5
+#define Limit_Range  10
 
 #define Up_LongLine_Left    0
 #define Up_LongLine_Centre  1
 #define Up_LongLine_Right   2
 
+#define Y_start 68
 
 float up_long_sum,up_long_num_sum;
 uint8_t Min,Up_Long_Line,Min_Line;
 uint8_t Underwind=28,Upwind=22;
+uint8_t Element_Top;
 uint8_t Realwind=40;//真实打脚行
 uint8_t Cut_Line=20;//截断行
 uint8_t LeftLine[row1]={0},RightLine[row1]={0};
@@ -293,14 +295,14 @@ void Image_Scanning(void)
     Cut_Line=10;
     if(Element_Garage_Out.Lock==Lock)
     {
-        RightLine[69]=(uint8_t)Right[67];
-        LeftLine[69]=(uint8_t)Left[67];
-        RightFindFlag[69]=1;
-        LeftFindFlag[69]=1;
+        RightLine[Y_start]=(uint8_t)Right[67];
+        LeftLine[Y_start]=(uint8_t)Left[67];
+        RightFindFlag[Y_start]=1;
+        LeftFindFlag[Y_start]=1;
     }
     else
     {
-        for(Y=69;Y>68;Y--)
+        for(Y=Y_start;Y>Y_start-5;Y--)
         {
             RightLine[Y]=186;
             RightFindFlag[Y]=0;
@@ -315,7 +317,7 @@ void Image_Scanning(void)
             }
             LeftLine[Y]=0;
             LeftFindFlag[Y]=0;
-            for (X=Old_Center;X<col1-2;X++)
+            for (X=Old_Center;X>2;X--)      //扫描方向很重要
             {
                 if(Process_Array[Y][X]==BLACK_Pixie&&Process_Array[Y][X-1]==BLACK_Pixie)
                 {
@@ -332,15 +334,15 @@ void Image_Scanning(void)
         }
 
     }
-    Min=69;
-    Limit_L=LeftLine[69],Limit_R=RightLine[69];
+    Min=Y_start;
+    Limit_L=LeftLine[Y_start],Limit_R=RightLine[Y_start];
     for(X=0;X<=Limit_L;X++)
     {
-        Up[X]=69;
+        Up[X]=Y_start;
     }
     for(X=col1-1;X>=Limit_R;X--)
     {
-        Up[X]=69;
+        Up[X]=Y_start;
     }
     up_long_sum=0.01;
     up_long_num_sum=0.01;
@@ -349,11 +351,11 @@ void Image_Scanning(void)
         for(X=Limit_L+1;X<Limit_R-1;X++)
         {
             Up[X] = 1;
-            for (Y = row1 - 1; Y > 1; Y--)
+            for (Y = Y_start - 1; Y > 1; Y--)
             {
                 if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y - 1][X] == BLACK_Pixie)
                 {
-                    Up[X] = (uint8_t)Limit_ab_int((int)Y, 1, 68);
+                    Up[X] = (uint8_t)Limit_ab_int((int)Y, 1, Y_start-1);
                     if (Up[X] < Min)
                     {
                         Min = Up[X];//找出最高行
@@ -368,7 +370,7 @@ void Image_Scanning(void)
                 up_long_num_sum+=1.0;
             }
         }
-        for(Y=68;Y>Min;Y--) //根据打脚行扫线
+        for(Y=Y_start-1;Y>Min;Y--) //根据打脚行扫线
         {
             GetJumpPointFromDet(left,Limit_Range,(uint8_t)Y);
             GetJumpPointFromDet(right,Limit_Range,(uint8_t)Y);
@@ -392,7 +394,7 @@ void Image_Scanning(void)
             }
             else if(RightLine[Y]==UnNormal)
             {
-                for(X=RightLine[Y]-1;X>Limit_ab_uint8(LeftLine[Y],2,185);X--)   //从左到右扫描
+                for(X=RightLine[Y]-1;X>Limit_ab_uint8(LeftLine[Y],2,185);X--)   //从右到左扫描
                 {
                     if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y][X - 1] == WHITE_Pixie && Process_Array[Y][X - 2] == WHITE_Pixie) 
                     {
@@ -409,7 +411,7 @@ void Image_Scanning(void)
                 }
             }
             fiv_width[Y]=RightLine[Y]-LeftLine[Y];
-            MidLine[Y]=(uint8_t)(((int)LeftLine[Y]-(int)RightLine[Y])/2);
+            MidLine[Y]=(uint8_t)(((int)LeftLine[Y]+(int)RightLine[Y])/2);
         }
         Old_Center=(uint8_t)MidLine[67];
         for ( Y=Min; Y>=0; Y--) //刷新并清理顶端扫描数据
@@ -424,24 +426,24 @@ void Image_Scanning(void)
     }
     else//有元素时自锁避免元素干扰扫线
     {
-        uint8_t Mid=Limit_ab_uint8((RightLine[69]+LeftLine[69])/2,0,186);
+        uint8_t Mid=Limit_ab_uint8((RightLine[Y_start]+LeftLine[Y_start])/2,0,186);
         Min_Line=94;
         if(Up_LongLine_Tactics==Up_LongLine_Left)
         {
-            for(X=RightLine[69];X>LeftLine[69];X--) //向上找，从右到左
+            for(X=RightLine[Y_start];X>LeftLine[Y_start];X--) //向上找，从右到左
             {
                 Up[X]=1;//初始化所有的起始点
                 for(Y=row1-1;Y>1;Y--)
                 {
                     if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y - 1][X] == BLACK_Pixie)   //避免一直为1
                     {
-                        Up[X] = Limit_ab_uint8((uint8_t)Y, 1, 68);
+                        Up[X] = Limit_ab_uint8((uint8_t)Y, 1, Y_start-1);
                         break;
                     }
                 }
                 //赛道引导线会尽量局左
-                /*if (X < RightLine[69] - (RightLine[69] - LeftLine[69]) / 3 && X >LeftLine[69])*/
-                if(X<Mid&&X>LeftLine[69])
+                /*if (X < RightLine[Y_start] - (RightLine[Y_start] - LeftLine[Y_start]) / 3 && X >LeftLine[Y_start])*/
+                if(X<Mid&&X>LeftLine[Y_start])
                 {
                     //绝对高||合理误差内偏左
                     if ((X < Mid && Up[X] <= Min) || (abs((int)Up[X] - (int)Min) < 2 && X < Min_Line))
@@ -467,20 +469,20 @@ void Image_Scanning(void)
 
         else if(Up_LongLine_Tactics==Up_LongLine_Right)
         {
-            for(X=LeftLine[69];X<RightLine[69];X++) //向上找，从左到右
+            for(X=LeftLine[Y_start];X<RightLine[Y_start];X++) //向上找，从左到右
             {
                 Up[X]=1;//初始化所有的起始点
                 for(Y=row1-1;Y>1;Y--)
                 {
                     if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y - 1][X] == BLACK_Pixie)   //避免一直为1
                     {
-                        Up[X] = Limit_ab_uint8((uint8_t)Y, 1, 68);
+                        Up[X] = Limit_ab_uint8((uint8_t)Y, 1, Y_start-1);
                         break;
                     }
                 }
                 //赛道引导线会尽量局右
-                /*if (X < RightLine[69] - (RightLine[69] - LeftLine[69]) / 3 && X >LeftLine[69])*/
-                if(X>Mid&&X<RightLine[69])
+                /*if (X < RightLine[Y_start] - (RightLine[Y_start] - LeftLine[Y_start]) / 3 && X >LeftLine[Y_start])*/
+                if(X>Mid&&X<RightLine[Y_start])
                 {
                     //绝对高||合理误差内偏左
                     if ((X >Mid && Up[X] <= Min) || (abs((int)Up[X] - (int)Min) < 2 && X > Min_Line))
@@ -505,18 +507,18 @@ void Image_Scanning(void)
         }
         else    //其余策略为中
         {
-            for(X=RightLine[69];X>LeftLine[69];X--)
+            for(X=RightLine[Y_start];X>LeftLine[Y_start];X--)
             {
                 Up[X]=1;
                 for (Y = row1 - 2; Y > 1; Y--)
                 {
                     if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y - 1][X] == BLACK_Pixie)
                     {
-                        Up[X] = Limit_ab_uint8((uint8_t)Y, 1, 68);
+                        Up[X] = Limit_ab_uint8((uint8_t)Y, 1, Y_start-1);
                         break;
                     }
                 } 
-                if(X<RightLine[69]-(RightLine[69]-LeftLine[69])/3&&X>LeftLine[69]+(RightLine[69]-LeftLine[69])/3)   //控制在中间的1/3区域以内
+                if(X<RightLine[Y_start]-(RightLine[Y_start]-LeftLine[Y_start])/3&&X>LeftLine[Y_start]+(RightLine[Y_start]-LeftLine[Y_start])/3)   //控制在中间的1/3区域以内
                 {
                     if(Up[X]<Min||(Up[X]==Min&&abs(94-(int)X)<abs(94-(int)Min_Line)))   //如果更高或者更靠近中点
                     {
@@ -543,7 +545,7 @@ void Image_Scanning(void)
                 //找到边界  右
                 if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y][X + 1] == BLACK_Pixie)
                 {
-                    RightLine[Y] = Limit_ab_uint8((uint8)X, 0, 186);
+                    RightLine[Y] = Limit_ab_uint8((uint8_t)X, 0, 186);
                     RightFindFlag[Y] = 1;
                     break;
                 }
@@ -555,7 +557,7 @@ void Image_Scanning(void)
             {
                 if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y][X - 1] == BLACK_Pixie)
                 {
-                    LeftLine[Y] = Limit_ab_uint8((uint8)X, 0, 186);
+                    LeftLine[Y] = Limit_ab_uint8((uint8_t)X, 0, 186);
                     LeftFindFlag[Y] = 1;
                     break;
                 }
@@ -573,7 +575,7 @@ void Image_Scanning(void)
 //修复丢线情况
 void Repair_Virsual(void)
 {
-    for (uint8_t Y = 69; Y > Min; Y--)
+    for (uint8_t Y = Y_start; Y > Min; Y--)
     {
         if (LeftFindFlag[Y] == 0 && RightFindFlag[Y]==1)
         {
@@ -595,7 +597,7 @@ void Repair_Virsual(void)
     }
 }
 
-// 假设您的图像处理已经得到了以下数组数据（Y 坐标 0-69）：
+// 假设您的图像处理已经得到了以下数组数据（Y 坐标 0-Y_start）：
 // extern uint8 LeftLine[row1], RightLine[row1]; // 左右边界线的 X 坐标
 // extern int MidLine[row1];                     // 中线的 X 坐标
 // extern uint8 Min;                            // 找到的最远行 (顶行)
@@ -608,22 +610,27 @@ void Repair_Virsual(void)
 
 void display_lane_lines(void)
 {
-    uint8 Y;
-    uint8 LeftX, RightX, MidX;
+    uint8_t Y;
+    uint8_t LeftX, RightX, MidX;
+    uint8_t Lock_display;
 
-    // 从底部（Y=69）开始向上（Y=0）遍历，但只画 Min 行以下的部分
-    for (Y = 69; Y > 1; Y--)
+    Lock_display=Check_Lock();
+    // 从底部（Y=Y_start）开始向上（Y=0）遍历，但只画 Min 行以下的部分
+    for (Y = Y_start; Y > 1; Y--)
     {
         // 1. 获取当前行线的 X 坐标（需要进行限制，避免数组越界）
         LeftX = Limit_ab_uint8(LeftLine[Y], 0, col1 - 1);
         RightX = Limit_ab_uint8(RightLine[Y], 0, col1 - 1);
-        MidX = Limit_ab_uint8(MidLine[Y], 0, col1 - 1);
+        MidX = Limit_ab_uint8(MidLine[Y], 5, col1 - 5);
 
         // 2. 绘制左边界线（假设用亮灰色 100 表示）
         // 只有当 LeftFindFlag[Y] == Normal 或 UnNormal 时才绘制，这里简化为判断 LeftLine[Y] > 0
         if (LeftLine[Y] > 0)
         {
             ips114_draw_point(LeftX, Y, RGB565_BLUE);
+            ips114_draw_point(LeftX + 1, Y, RGB565_BLUE);
+            ips114_draw_point(LeftX, Y + 1, RGB565_BLUE);
+            ips114_draw_point(LeftX + 1, Y + 1, RGB565_BLUE);
             // 示例：使用您的显示函数来画点
         }
 
@@ -631,28 +638,62 @@ void display_lane_lines(void)
         if (RightLine[Y] < col1 - 1)
         {
             ips114_draw_point(RightX, Y, RGB565_BLUE);
+            ips114_draw_point(RightX + 1, Y, RGB565_BLUE);
+            ips114_draw_point(RightX, Y + 1, RGB565_BLUE);
+            ips114_draw_point(RightX + 1, Y + 1, RGB565_BLUE);
             // 示例：使用您的显示函数来画点
         }
 
         // 4. 绘制中线（假设用白色 255 表示，让它最显眼）
          //ips114_draw_point(MidX, Y, RGB565_BROWN);
-        ips114_show_int(180,65,MidX,3);
-        // 示例：使用您的显示函数来画点
 
+        // 示例：使用您的显示函数来画点
         // --- 绘制打脚行（Realwind）上的特殊点 ---
+
+        ips114_draw_point(MidX, Y, RGB565_RED);
+        ips114_draw_point(MidX + 1, Y, RGB565_RED);
+        ips114_draw_point(MidX, Y + 1, RGB565_RED);
+        ips114_draw_point(MidX + 1, Y + 1, RGB565_RED);
+
         if (Y == Realwind)
         {
-            ips114_draw_point(MidLine[Y], Y, RGB565_RED);
-            ips114_draw_point(MidLine[Y] + 1, Y, RGB565_RED);
-            ips114_draw_point(MidLine[Y], Y, RGB565_RED);
+            ips114_draw_point(MidX, Y, RGB565_BLUE);
+            ips114_draw_point(MidX + 2, Y, RGB565_BLUE);
+            ips114_draw_point(MidX - 2, Y, RGB565_BLUE);
+            ips114_draw_point(MidX, Y+1, RGB565_BLUE);
+            ips114_draw_point(MidX + 1, Y+1, RGB565_BLUE);
         }
     }
 
     // --- 绘制顶行（Min）上的引导点 ---
-    if (Min > 0 && Min < 69)
+    if (Min > 0 && Min < Y_start)
     {
          ips114_draw_point(Up_Long_Line, Min, RGB565_GREEN); // 黑色大点标记最远引导点
          ips114_draw_point(Up_Long_Line + 1, Min, RGB565_GREEN);
+    }
+
+   ips114_show_int(50,70,MidX,3);
+   ips114_show_int(50,90,Lock_display,3);
+   ips114_show_int(50,110,LeftLine[Y_start],3);
+   ips114_show_int(80,70,RightLine[Y_start],3);
+   ips114_show_int(80,90,Lock_display,3);
+   //ips114_show_int(80,110,Min,3);
+}
+
+//真实打脚行处理
+void Realwind_Process(void)
+{
+    if(Element_Circle_LeftSide.Lock==Lock||Element_Circle_RightSide.Lock==Lock)
+    {
+        Realwind=Underwind;
+        if(Realwind<Element_Top)
+        {
+            Realwind=Limit_ab_int(Element_Top+2,25,69);
+        }       
+    }
+    else
+    {
+        //Realwind=Underwind-(uint8_t)
     }
 }
 
@@ -664,9 +705,9 @@ void self_mtv90x_process(void)
         Binarization();
         Image_Scanning();
         Repair_Virsual();
-        display_lane_lines();
         //ips114_displayimage03x((const uint8_t *)Process_Array, MT9V03X_W, MT9V03X_H);
         ips114_show_gray_image(0, 0, (const uint8_t *)Process_Array, col1, row1, col1, row1, 0);       // 显示灰度图像
+        display_lane_lines();
         mt9v03x_finish_flag = 0;
     }
 }

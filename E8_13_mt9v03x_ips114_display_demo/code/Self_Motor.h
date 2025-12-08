@@ -45,7 +45,7 @@ typedef enum
 typedef enum
 {
     UnLock,
-    Lock
+     Lock
 }Lock_enum;
 
 //元素结构体
@@ -53,7 +53,7 @@ typedef struct
 {
     Element_enum Name;
     Lock_enum Lock;
-    uint8 State;
+    uint8_t State;
 }Element_Type;
 
 void self_motor_init(void);

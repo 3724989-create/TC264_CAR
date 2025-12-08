@@ -7,6 +7,7 @@
 #include "Self_mtv90x.h"
 #include "Self_Motor.h"
 #include "self_math.h"
+#include "VC_Fuzzy.h"
 
 void all_init(void);
 
