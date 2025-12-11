@@ -1,0 +1,10 @@
+#ifndef _SELF_CONTROL_H_
+#define _SELF_CONTROL_H_
+
+#include "Self_BSP.h"
+
+extern uint8_t Time_Out;
+extern uint8_t Cargo_flag;
+extern uint8_t Outside_Flag;
+
+#endif // DEBUG

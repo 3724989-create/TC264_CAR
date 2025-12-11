@@ -24,7 +24,14 @@ SECONDARY_SIZE :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-code \
+code/BSP \
+code/Control \
+code/Fuzzy \
+code/Math \
+code/Motor \
+code/Servo \
+code/mtv90x \
+code/pid \
 libraries/infineon_libraries/Infra/Platform/Tricore/Compilers \
 libraries/infineon_libraries/Service/CpuGeneric/If \
 libraries/infineon_libraries/Service/CpuGeneric/StdIf \

@@ -99,7 +99,14 @@ RM := rm -rf
 -include libraries/infineon_libraries/Service/CpuGeneric/StdIf/subdir.mk
 -include libraries/infineon_libraries/Service/CpuGeneric/If/subdir.mk
 -include libraries/infineon_libraries/Infra/Platform/Tricore/Compilers/subdir.mk
--include code/subdir.mk
+-include code/pid/subdir.mk
+-include code/mtv90x/subdir.mk
+-include code/Servo/subdir.mk
+-include code/Motor/subdir.mk
+-include code/Math/subdir.mk
+-include code/Fuzzy/subdir.mk
+-include code/Control/subdir.mk
+-include code/BSP/subdir.mk
 ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(strip $(C++_DEPS)),)
 -include $(C++_DEPS)

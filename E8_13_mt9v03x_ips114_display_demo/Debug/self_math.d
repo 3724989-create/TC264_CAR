@@ -1,9 +1,9 @@
-self_math.o :	../code/self_math.c
-../code/self_math.c :
-self_math.o :	..\code\self_math.h
-..\code\self_math.h :
-self_math.o :	..\code\Self_BSP.h
-..\code\Self_BSP.h :
+self_math.o :	../code/Math/self_math.c
+../code/Math/self_math.c :
+self_math.o :	..\code\Math\self_math.h
+..\code\Math\self_math.h :
+self_math.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\BSP\Self_BSP.h"
+"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\BSP\Self_BSP.h" :
 self_math.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_common\zf_common_headfile.h"
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_common\zf_common_headfile.h" :
 self_math.o :	"D:\Car\Aurix\AURIX-Studio-1.10.2\tools\Compilers\Tasking_1.1r8\ctc\include\math.h"
@@ -328,13 +328,19 @@ self_math.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\librar
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant.h" :
 self_math.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant_interface.h"
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\libraries\\zf_components\seekfree_assistant_interface.h" :
-self_math.o :	..\code\Self_Servo.h
-..\code\Self_Servo.h :
-self_math.o :	..\code\Self_BSP.h
-..\code\Self_BSP.h :
-self_math.o :	..\code\Self_mtv90x.h
-..\code\Self_mtv90x.h :
-self_math.o :	..\code\Self_Motor.h
-..\code\Self_Motor.h :
-self_math.o :	..\code\self_math.h
-..\code\self_math.h :
+self_math.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\pid\self_pid.h"
+"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\pid\self_pid.h" :
+self_math.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\BSP\Self_BSP.h"
+"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\BSP\Self_BSP.h" :
+self_math.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\Servo\Self_Servo.h"
+"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\Servo\Self_Servo.h" :
+self_math.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\mtv90x\Self_mtv90x.h"
+"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\mtv90x\Self_mtv90x.h" :
+self_math.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\Motor\Self_Motor.h"
+"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\Motor\Self_Motor.h" :
+self_math.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\Math\self_math.h"
+"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\Math\self_math.h" :
+self_math.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\Fuzzy\VC_Fuzzy.h"
+"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\Fuzzy\VC_Fuzzy.h" :
+self_math.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\Control\Self_Control.h"
+"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\Control\Self_Control.h" :
