@@ -1,7 +1,6 @@
 
 #include "Self_BSP.h"
 #pragma section all "cpu0_dsram"
-
 int core0_main(void)
 {
     all_init();

@@ -6,6 +6,18 @@
 #define WHITE_Pixie 255
 #define BLACK_Pixie 0
 
+#define easy    0
+#define complex 1
+#define veryeasy 2
+
+//拐点
+Knee_Type Right_Low_Knee      ={Knee_Null,0,0};
+Knee_Type Right_Middle_Knee   ={Knee_Null,0,0};
+Knee_Type Right_Up_Knee       ={Knee_Null,0,0};
+Knee_Type Left_Low_Knee       ={Knee_Null,0,0};
+Knee_Type Left_Middle_Knee    ={Knee_Null,0,0};
+Knee_Type Left_Up_Knee        ={Knee_Null,0,0};
+
 uint8_t Outside_Flag=0;
 
 int Left[70]={89 , 88 , 87 ,  86 ,  86 ,  85 ,  84 ,  83 ,  82 ,  81 ,  80 ,  79 ,  79 ,  78 ,  77 ,  76 ,  75 ,  74 ,  74 ,  73 ,  72 ,  71 ,  70 ,
@@ -773,6 +785,8 @@ void Realwind_Process(void)
         }
     }
      Control_Mid = MidLine[Realwind];
+     ips114_show_int(110,90,control_error,3);
+     ips114_show_int(110,110,Realwind,3);
 
 }
 
@@ -836,7 +850,7 @@ void self_mtv90x_process(void)
             if(Min>66)
             {
                 Outside_Flag=1;
-                ips114_show_int(130,130,1,1);
+                ips114_show_int(80,110,1,1);
             }
             else
             {

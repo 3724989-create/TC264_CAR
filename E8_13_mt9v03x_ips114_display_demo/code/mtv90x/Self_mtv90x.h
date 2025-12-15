@@ -66,6 +66,27 @@ typedef struct
 
 }Element_Type;
 
+typedef enum
+{
+    Knee_Null=0,
+    Knee_Exist
+}Have_enum;
+
+//拐点结构体
+typedef struct
+{
+    Have_enum Have;//类型
+    uint8_t X;
+    uint8_t Y;
+}Knee_Type;
+
+extern Knee_Type Right_Low_Knee      ;
+extern Knee_Type Right_Middle_Knee   ;
+extern Knee_Type Right_Up_Knee       ;
+extern Knee_Type Left_Low_Knee       ;
+extern Knee_Type Left_Middle_Knee    ;
+extern Knee_Type Left_Up_Knee        ;
+
 extern Element_Type Element_Circle_LeftSide;  //左圆环
 extern Element_Type Element_Circle_RightSide; //右圆环
 extern Element_Type Element_Centre_Cross;     //中十字

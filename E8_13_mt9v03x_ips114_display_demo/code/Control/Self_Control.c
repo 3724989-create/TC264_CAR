@@ -2,7 +2,7 @@
 
 // 全局/外部变量声明 (已修复乱码)
 uint8_t Time_Out;
-uint8_t Cargo_flag;
+uint8_t Cargo_flag=1;
 
 // 机械几何参数 (cm)
 float W = 15.5, L = 20;             // W 表示轮距 (Wheel Track)，L 表示轴距 (Wheelbase)
@@ -80,6 +80,7 @@ void Servo_Control(float error)
            pwm_set_duty(SERVO_MOTOR_PWM, Servo_angle);   // 舵机输出 PWM，但不进行阿克曼差速计算 (类似于急停时保持转向角)
         }
     }
+    ips114_show_int(110,70,Servo_error,3);
 }
 
 
