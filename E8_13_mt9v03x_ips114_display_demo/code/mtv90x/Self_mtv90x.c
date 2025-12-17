@@ -43,6 +43,8 @@ uint8_t fiv_width[row1]={0};//图像每一行的宽度
 uint8_t MidLine[row1]={0};//图像每一行的宽度
 uint8_t Up[188];
 
+uint8_t Element_Judge_Flag=0;
+
 uint8_t Up_Long_Line=94;
 uint8_t Up_LongLine_Tactics;
 
@@ -76,9 +78,15 @@ uint8_t Up_Knee_Sum=0,Low_Knee_Sum=0,Low_Knee_Sum_Easy=0;
 
 uint8_t Knee_Find_flag;
 
+uint8_t Element_List_Start=0;
+
 float Variance_low_l,Variance_low_r;
 float Variance_l;
 float Variance_r;
+
+int Width[70]={  4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 13 , 14 , 15 , 16 , 17 , 18 , 19 , 20 , 21 , 21 , 22 , 23 , 24 , 25 , 26 , 27 , 28 ,
+        29 , 30 , 31 , 32 , 33 , 34 , 34 , 35 , 36 , 37 , 38 , 39 , 40 , 40 , 41 , 42 , 43 , 44 , 45 , 46 , 47 , 48 , 49 , 50 , 51 , 52 , 53 , 54 ,
+        54 , 55 , 56 , 57 , 58 , 59 , 60 , 61 , 62 , 63 , 64 , 65 , 66 , 67 , 69 };
 
 int Left[70]={89 , 88 , 87 ,  86 ,  86 ,  85 ,  84 ,  83 ,  82 ,  81 ,  80 ,  79 ,  79 ,  78 ,  77 ,  76 ,  75 ,  74 ,  74 ,  73 ,  72 ,  71 ,  70 ,
         69 ,  68 ,  67 ,  66 ,  65 ,  64 ,  63 ,  62 ,  61 ,  60 ,  59 ,  58 ,  57 ,  56 ,  55 ,  54 ,  53 ,  53 ,  52 ,  51 ,  49 ,  48 ,  48 ,  47 ,
@@ -1236,6 +1244,152 @@ void  Cal_StartLine(uint8_t cut)
     }
 }
 
+#define width_compare(Y)    abs(Width[Y]-fiv_width[Y]/2)
+//-------------------------------------------------------------------------------------------------------------------
+//  @brief      赛宽统计
+//  @param      BigorSmall       选择计算大小   0小 1一大一小 2大
+//  @param      startline        起始行
+//  @param      endline          结束行
+
+//  @return     null
+//-------------------------------------------------------------------------------------------------------------------
+uint8_t Width_Statics(uint8_t startline,uint8_t endline,uint8_t BigorSmall)
+{
+    uint8_t i,Sum=0;
+    
+    //小
+    if(BigorSmall==0)
+    {
+        for(i=startline;i<=endline;i++)
+        {
+            if((RightLine[i]<Right[i]&&LeftLine[i]>Left[i])||
+            (fiv_width[i]/2<Width[i]&&width_compare(i)>6))  Sum++;
+        }
+    }
+    //大
+    else if(BigorSmall==2)
+    {
+        for(i=startline;i<=endline;i++)
+        {
+            if((RightLine[i]>Right[i]&&LeftLine[i]<Left[i])||
+            (fiv_width[i]/2>Width[i]&&width_compare(i)>6))  Sum++;
+        }
+    }
+    //都（统计弯道）
+    else if(BigorSmall==1)
+    {
+        for(i=startline;i<=endline;i++)
+        {
+            if((RightLine[i]<Right[i]&&LeftLine[i]<Left[i])||
+           (RightLine[i]>Right[i]&&LeftLine[i]>Left[i]))  Sum++;
+        }
+    }
+
+    return Sum;
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+//  @brief      丢线统计
+//  @param      left_or_right    选择计算左/右线  0左 2右
+//  @param      startline        起始行
+//  @param      endline          结束行
+//  @return     null
+//-------------------------------------------------------------------------------------------------------------------
+uint8_t Lost_Line_Statistics(uint8_t startline,uint8_t endline,uint8_t left_or_right)
+{
+    uint8_t Lost_Line=0;
+    if(left_or_right==0)
+    {
+        for(uint8_t i=startline;i<endline;i++)
+        {
+            if(LeftFindFlag[i]==MisEdge)
+            {
+                Lost_Line++;  
+            }
+        }
+    }
+    else if(left_or_right==2)
+    {
+        for(uint8_t i=startline;i<endline;i++)
+        {
+            if(RightFindFlag[i]==MisEdge)
+            {
+                Lost_Line++;  
+            }
+        }
+    }
+     return Lost_Line;
+}
+
+uint8_t Grage_Judge_Now(uint8_t pass_sum)
+{
+    uint8_t sum=0,flag=0;
+    for(uint8_t Y=Limit_ab_uint8(Min,45,65);Y>Limit_ab_uint8(Min,30,45);Y=Y-2)
+    {
+        for(uint8_t X=LeftLine[Y];X<RightLine[Y];X++)
+        {
+                if((Process_Array[Y][X-1]==0&&Process_Array[Y][X]==0&&Process_Array[Y][X+1]==255&&Process_Array[Y][X+2]==255)
+            ||(Process_Array[Y][X-1]==255&&Process_Array[Y][X]==255&&Process_Array[Y][X+1]==0&&Process_Array[Y][X+2]==0))
+            {
+                sum++;
+            }
+        }
+        if(sum-1>pass_sum)  //边界两条
+        {
+            flag=1;
+            break;
+        }
+        else
+        {
+            sum=0;
+        }
+    }
+    return flag;
+}
+
+void Un_Element_Judge(void)
+{
+    if(Check_Lock()==1)
+    {
+        //识别斑马线
+        if(Grage_Judge_Now(7))
+        {
+            Element_Judge_Flag=5;
+
+            Element_Garage.Lock=Lock;
+            Element_Garage.State=1;
+
+            Element_Left_Cross.Lock=UnLock;
+            Element_Left_Cross.State=0;
+
+            Element_Right_Cross.Lock=UnLock;
+            Element_Right_Cross.State=0;
+
+            Up_LongLine_Tactics=Up_LongLine_Centre;
+        }
+    }
+    if(Check_Lock()==1)
+    {
+       //坡锁判断
+        if(Width_Statics(20,68,2)>16&&
+            Regression_K_R<1.6&&Regression_K_R>0&&
+            Regression_K_L<-1.6&&Regression_K_L>0&&
+             (Lost_Line_Statistics(30,60,0)<4 || Lost_Line_Statistics(30,60,2)<4))
+            {
+                Element_Judge_Flag=7;
+
+                Element_Ramp.Lock=Lock;
+                Element_Ramp.State=1;
+
+                Element_Left_Cross.Lock=UnLock;
+                Element_Left_Cross.State=0;
+
+                Element_Right_Cross.Lock=UnLock;
+                Element_Right_Cross.State=0;
+            }
+    }
+}
+
 void Image_handle(void)
 {
     Left_Knee_Sum=0,Right_Knee_Sum=0,Up_Knee_Sum=0,Low_Knee_Sum=0,Low_Knee_Sum_Easy=0;
@@ -1259,6 +1413,17 @@ void Image_handle(void)
     //方差统计
     Variance_l=Variance_Count_Now(Min, 68,0);
     Variance_r=Variance_Count_Now(Min, 68,2);
+
+    //无元素判断元素
+    if(Element_List_Start==0)
+    {
+
+    }
+    else if(Element_List_Start==1)
+    {
+
+    }
+
 }
 
 void self_mtv90x_process(void)
