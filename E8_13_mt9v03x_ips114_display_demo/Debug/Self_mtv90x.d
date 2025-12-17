@@ -344,3 +344,5 @@ Self_mtv90x.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\Fuzzy\VC_Fuzzy.h" :
 Self_mtv90x.o :	"D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\Control\Self_Control.h"
 "D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\code\\Control\Self_Control.h" :
+Self_mtv90x.o :	..\code\mtv90x\DATA_sheet.h
+..\code\mtv90x\DATA_sheet.h :

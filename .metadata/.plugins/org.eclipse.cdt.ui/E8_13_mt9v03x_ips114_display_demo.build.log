@@ -3,6 +3,6 @@ Connected to device... [TRICORE] DAS JDS for TriCore STC ARM
 ::Loading HEX file .......... (Pass)
 ::Erasing Flash memory .......... (Pass)
 ::Programming Flash memory .......... (Pass)
-Overall time: 1546 ms
+Overall time: 1766 ms
 AURIXFlasher Exit Status: Pass
 Flashing was successfull

@@ -1,5 +1,6 @@
 
 #include "Self_mtv90x.h"
+#include "DATA_sheet.h"
 
 #define row1 70
 #define col1 188
@@ -10,6 +11,52 @@
 #define complex 1
 #define veryeasy 2
 
+#define dist_d 2        //down,向下看
+#define dist_u 3        //up,向上看
+
+#define left   0
+#define center 1
+#define right  2
+#define up     3
+
+#define MisEdge  0
+#define Normal   1
+#define UnNormal 2
+
+#define Limit_Range  10
+
+#define Up_LongLine_Left    0
+#define Up_LongLine_Centre  1
+#define Up_LongLine_Right   2
+
+#define Y_start 68
+
+float up_long_sum=0,up_long_num_sum=0;
+uint8_t Min,Up_Long_Line,Min_Line;
+uint8_t Underwind=28,Upwind=22;
+uint8_t Element_Top;
+uint8_t Realwind=40;//真实打脚行
+uint8_t Cut_Line=20;//截断行
+uint8_t LeftLine[row1]={0},RightLine[row1]={0};
+uint8_t RightFindFlag[row1]={0},LeftFindFlag[row1]={0};
+uint8_t fiv_width[row1]={0};//图像每一行的宽度
+uint8_t MidLine[row1]={0};//图像每一行的宽度
+uint8_t Up[188];
+
+uint8_t Up_Long_Line=94;
+uint8_t Up_LongLine_Tactics;
+
+Element_Type Element_Circle_LeftSide  ={Circle_LeftSide,UnLock,0};  //左圆环
+Element_Type Element_Circle_RightSide ={Circle_RightSide,UnLock,0}; //右圆环
+Element_Type Element_Centre_Cross     ={Centre_Cross,UnLock,0};     //中十字
+Element_Type Element_Left_Cross       ={Left_Cross,UnLock,0};       //左入十字
+Element_Type Element_Right_Cross      ={Right_Cross,UnLock,0};      //右入十字
+Element_Type Element_Right_Block      ={ Right_Block,UnLock,0};     //右路障
+Element_Type Element_Left_Block       ={ Left_Block,UnLock,0 };     //路障
+Element_Type Element_Garage           ={Garage,UnLock,0};           //车库
+Element_Type Element_Garage_Out       ={Garage_Out,UnLock,0};       //出库
+Element_Type Element_Ramp             ={Ramp,UnLock,0};             //坡道
+
 //拐点
 Knee_Type Right_Low_Knee      ={Knee_Null,0,0};
 Knee_Type Right_Middle_Knee   ={Knee_Null,0,0};
@@ -19,6 +66,19 @@ Knee_Type Left_Middle_Knee    ={Knee_Null,0,0};
 Knee_Type Left_Up_Knee        ={Knee_Null,0,0};
 
 uint8_t Outside_Flag=0;
+
+uint8_t OTSU_Th;
+uint8_t Image_Value = 80;
+
+uint8_t Left_Knee_Sum=0;
+uint8_t Right_Knee_Sum=0;
+uint8_t Up_Knee_Sum=0,Low_Knee_Sum=0,Low_Knee_Sum_Easy=0;
+
+uint8_t Knee_Find_flag;
+
+float Variance_low_l,Variance_low_r;
+float Variance_l;
+float Variance_r;
 
 int Left[70]={89 , 88 , 87 ,  86 ,  86 ,  85 ,  84 ,  83 ,  82 ,  81 ,  80 ,  79 ,  79 ,  78 ,  77 ,  76 ,  75 ,  74 ,  74 ,  73 ,  72 ,  71 ,  70 ,
         69 ,  68 ,  67 ,  66 ,  65 ,  64 ,  63 ,  62 ,  61 ,  60 ,  59 ,  58 ,  57 ,  56 ,  55 ,  54 ,  53 ,  53 ,  52 ,  51 ,  49 ,  48 ,  48 ,  47 ,
@@ -51,6 +111,331 @@ void self_mtv90x_init(void)
         system_delay_ms(500);                                     // 短延时快速闪灯表示异常
     }
 
+}
+
+float Calculation_Angle(int x1,int x2,int x3,int y1, int y2, int y3)    //通过反余弦求角度
+{
+    float angle=0;
+    float a,b,c;
+    int16_t  AB = 0, CA = 0, BC = 0;
+
+    AB=abs(x1-x2);
+    BC=abs(x2-x3);  //B是当前点
+    CA=abs(x1-x3);
+
+    a = sqrt((y3-y2)*(y3-y2) + BC * BC * 1.0);
+    b = sqrt((y3 - y1) * (y3 - y1) + CA * CA * 1.0);
+    c = sqrt((y2 - y1) * (y2 - y1) + AB * AB * 1.0);
+
+    if(a==0||c==0)return 180;
+    if(y3==0&&y2==0)return 180;
+    angle=acos(Limit_ab_float((a*a+c*c-b*b)/(2.0*a*c),-0.999999,0.999999))*180.0/3.1416;//不能到1，不然角度==0,余弦值转换为度数
+    return angle;
+}
+ 
+float Angle_Culculate(uint8_t type,uint8_t start_Line,uint8_t end_Line)
+{
+    if(type==left)
+    {
+        for(uint8_t Y=end_Line;Y>=start_Line;Y--)
+        {
+            int local_x=PerImg_s[Y*188+LeftLine[Y]][1];
+            int local_y=PerImg_s[Y*188+LeftLine[Y]][0];
+            int local_x_u=PerImg_s[(Y-dist_u)*188+LeftLine[Y-dist_u]][1];
+            int local_y_u=PerImg_s[(Y-dist_u)*188+LeftLine[Y-dist_u]][0];
+            int local_x_d=PerImg_s[(Y+dist_d)*188+LeftLine[Y+dist_d]][1];
+            int local_y_d=PerImg_s[(Y+dist_d)*188+LeftLine[Y+dist_d]][0];
+            return Calculation_Angle(local_x_d, local_x, local_x_u, local_y_d, local_y, local_y_u);
+        }
+    }
+    if(type==right)
+    {
+        for(uint8_t Y=end_Line;Y>=start_Line;Y--)
+        {
+            int local_x=PerImg_s[Y*188+RightLine[Y]][1];
+            int local_y=PerImg_s[Y*188+RightLine[Y]][0];
+            int local_x_u=PerImg_s[(Y-dist_u)*188+RightLine[Y-dist_u]][1];
+            int local_y_u=PerImg_s[(Y-dist_u)*188+RightLine[Y-dist_u]][0];
+            int local_x_d=PerImg_s[(Y+dist_d)*188+RightLine[Y+dist_d]][1];
+            int local_y_d=PerImg_s[(Y+dist_d)*188+RightLine[Y+dist_d]][0];
+            return Calculation_Angle(local_x_d, local_x, local_x_u, local_y_d, local_y, local_y_u);
+        }
+    }
+    return 180.0;
+}
+
+//寻找右下拐点    稍微调松了右下拐点的判断 12.16
+void Image_Knee_Right_Low_Now(uint8_t type)
+{
+    Right_Low_Knee.Have=Knee_Null;
+    for(uint8_t Y=66;Y>Limit_ab_uint8(Min+dist_u,20,66);Y--)  //Min表示最高行
+    {
+        if(RightFindFlag[Y]==Normal&&(int)RightLine[Y-3]-(int)RightLine[Y]+(int)RightLine[Y+3]-(int)RightLine[Y]>=3 //5->3
+        &&(int)RightLine[Y-1]-(int)RightLine[Y]>0
+        &&RightFindFlag[Y + 1] == Normal&& (int)RightLine[Y] - (int)RightLine[Y + 1] <= 0&&(int)RightLine[Y] - (int)RightLine[Y+1]>=-5
+        && (int)RightLine[Y] - (int)RightLine[Y + 2] <= 0 &&(int)RightLine[Y] - (int)RightLine[Y + 2] >= -5 //-3 -> -5
+        &&(Angle_Culculate(right,Y,Y)<120.0||(RightLine[Y]-RightLine[Y-1]<-10&&Angle_Culculate(right, Y, Y) < 140.0))
+        )
+        {
+            Right_Low_Knee.Have = Knee_Exist;
+            Right_Low_Knee.X = RightLine[Y];
+            Right_Low_Knee.Y = Y;
+            break; 
+        }
+    }
+}
+
+//寻找右上拐点
+void Image_Knee_Right_Up_Now(uint8_t type)
+{
+    Right_Up_Knee.Have=Knee_Null;
+       if (Right_Low_Knee.Have == Knee_Exist)
+    {
+        for (uint8_t Y = Right_Low_Knee.Y - 1; Y > Limit_ab_uint8(Min + dist_u, 10, 66); Y--)
+        {
+            if (RightFindFlag[Y] == Normal && (int)RightLine[Y - 2] - (int)RightLine[Y] + (int)RightLine[Y + 2] - (int)RightLine[Y] >= 4
+                && (int)RightLine[Y] - (int)RightLine[Y + 1] <= 0 && (int)RightLine[Y - 1] - (int)RightLine[Y] <= 0 && (int)RightLine[Y - 1] - (int)RightLine[Y] >= -3
+                && (int)RightLine[Y - 2] - (int)RightLine[Y] <= 0 && (int)RightLine[Y - 2] - (int)RightLine[Y] >= -5
+                && (Angle_Culculate(right, Y, Y) < 120.0 || (((int)RightLine[Y] - (int)RightLine[Y + 1] < -30)))
+                )
+            {
+                Right_Up_Knee.Have = Knee_Exist;
+                Right_Up_Knee.X = RightLine[Y];
+                Right_Up_Knee.Y = Y;
+                break;
+            }
+        }
+    }
+    else
+    {
+        for (uint8_t Y = 66; Y > Limit_ab_uint8(Min + dist_u, 10, 66); Y--)
+        {
+            if (RightFindFlag[Y] == Normal && (int)RightLine[Y - 2] - (int)RightLine[Y] + (int)RightLine[Y + 2] - (int)RightLine[Y] >= 4
+                && (int)RightLine[Y] - (int)RightLine[Y + 1] <= 0 && (int)RightLine[Y - 1] - (int)RightLine[Y] <= 0 && (int)RightLine[Y - 1] - (int)RightLine[Y] >= -3
+                && (int)RightLine[Y - 2] - (int)RightLine[Y] <= 0 && (int)RightLine[Y - 2] - (int)RightLine[Y] >= -5
+                && (Angle_Culculate(right, Y, Y) < 120.0 || (((int)RightLine[Y] - (int)RightLine[Y + 1] < -30)))
+                )
+            {
+                Right_Up_Knee.Have = Knee_Exist;
+                Right_Up_Knee.X = RightLine[Y];
+                Right_Up_Knee.Y = Y;
+                break;
+            }
+        }
+    }
+}
+
+void Image_Knee_Left_Low_Now(uint8_t type)
+{
+    Left_Low_Knee.Have = Knee_Null;
+    for (uint8_t Y = 66; Y > Limit_ab_uint8(Min + dist_u + 1, 15, 66); Y--)
+    {
+        if (LeftFindFlag[Y] == Normal && (int)LeftLine[Y - 3] - (int)LeftLine[Y] + (int)LeftLine[Y + 3] - (int)LeftLine[Y] <= -5 && LeftLine[Y] - LeftLine[Y - 1] > 0
+            && LeftFindFlag[Y + 1] == Normal && (int)LeftLine[Y] - (int)LeftLine[Y + 1] >= 0 && (int)LeftLine[Y] - (int)LeftLine[Y + 1] <= 3
+            && (int)LeftLine[Y] - (int)LeftLine[Y + 2] >= 0 && (int)LeftLine[Y] - (int)LeftLine[Y + 2] <=5
+            && (Angle_Culculate(left, Y, Y) < 120.0 || (((int)LeftLine[Y] - (int)LeftLine[Y - 1] > 10) && Angle_Culculate(left, Y, Y) < 140.0)))
+        {
+            Left_Low_Knee.Have = Knee_Exist;
+            Left_Low_Knee.X = LeftLine[Y];
+            Left_Low_Knee.Y = Y;
+            break;
+        }
+    }
+}
+
+void Image_Knee_Left_Up_Now(uint8_t type)
+{
+    Left_Up_Knee.Have = Knee_Null;
+    if (Left_Low_Knee.Have == Knee_Exist)
+    {
+        for (uint8_t Y = Left_Low_Knee.Y - 1; Y > Limit_ab_uint8(Min + dist_u, 10, 66); Y--)
+        {
+            if (LeftFindFlag[Y] == Normal && (int)LeftLine[Y - 2] - (int)LeftLine[Y] + (int)LeftLine[Y + 2] - (int)LeftLine[Y] <= -4 && (int)LeftLine[Y] - (int)LeftLine[Y + 1] >= 0
+                && (int)LeftLine[Y - 1] - (int)LeftLine[Y] >= 0 && (int)LeftLine[Y - 1] - (int)LeftLine[Y] <=3 && (int)LeftLine[Y - 2] - (int)LeftLine[Y] >= 0 && (int)LeftLine[Y - 2] - (int)LeftLine[Y] <= 5
+                && (Angle_Culculate(left, Y, Y) < 120.0 || (((int)LeftLine[Y] - (int)LeftLine[Y + 1] > 20) && (int)LeftLine[Y - 1] - (int)LeftLine[Y] >= 0))
+                )
+            {
+                Left_Up_Knee.Have = Knee_Exist;
+                Left_Up_Knee.X = LeftLine[Y];
+                Left_Up_Knee.Y = Y;
+                break;
+            }
+        }
+    }
+    else
+    {
+        for (uint8_t Y = 66; Y > Limit_ab_uint8(Min + dist_u, 10, 66); Y--)
+        {
+            if (LeftFindFlag[Y] == Normal && (int)LeftLine[Y - 2] - (int)LeftLine[Y] + (int)LeftLine[Y + 2] - (int)LeftLine[Y] <= -4 && (int)LeftLine[Y] - (int)LeftLine[Y + 1] >= 0
+                && (int)LeftLine[Y - 1] - (int)LeftLine[Y] >= 0 && (int)LeftLine[Y - 1] - (int)LeftLine[Y] <= 3 && (int)LeftLine[Y - 2] - (int)LeftLine[Y] >= 0 && (int)LeftLine[Y - 2] - (int)LeftLine[Y] <= 5
+                && (Angle_Culculate(left, Y, Y) < 120.0 || (((int)LeftLine[Y] - (int)LeftLine[Y + 1] > 20) && (int)LeftLine[Y - 1] - (int)LeftLine[Y] >= 0))
+                )
+            {
+                Left_Up_Knee.Have = Knee_Exist;
+                Left_Up_Knee.X = LeftLine[Y];
+                Left_Up_Knee.Y = Y;
+                break;
+            }
+        }
+    }
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+//  @brief      寻右中拐点
+//
+//  @return     null
+//-------------------------------------------------------------------------------------------------------------------
+void Image_Knee_Right_Middle_Now(uint8_t type )
+{
+    uint8_t Y;
+    uint8_t Min_1=56;
+    if(type==complex)
+    {
+        if(Right_Low_Knee.Have==Knee_Exist)
+        {
+            Min_1=Limit_ab_uint8(Right_Low_Knee.Y+2,0,68);
+            for(Y=Min_1;Y>Limit_ab_uint8(Min+5,20,50);Y--)//Min为最低行
+            {
+                if(RightFindFlag[Y]==0){continue;}
+
+                if(RightLine[Y+5]-RightLine[Y+1]<=0){continue;}
+
+                if(RightLine[Y+4]-RightLine[Y+1]<=0){continue;}
+
+                if(RightLine[Y+3]-RightLine[Y+1]<=0){continue;}
+
+                if(RightLine[Y+5]-RightLine[Y+4]<0){continue;}
+
+                if(RightLine[Y+4]-RightLine[Y+3]<0){continue;}
+
+                if(RightLine[Y+3]-RightLine[Y+2]<0){continue;}
+
+                if(RightLine[Y-4]-RightLine[Y+1]<0){continue;}
+
+                if(RightLine[Y-3]-RightLine[Y+1]<0){continue;}
+
+                if(RightLine[Y-2]-RightLine[Y+1]<0){continue;}
+
+                Right_Middle_Knee.Have=Knee_Exist;
+                Right_Middle_Knee.Y=Y+1;
+                Right_Middle_Knee.X=RightLine[Y+1];
+
+            }
+        }
+        else
+        {
+            for(Y=56;Y>Limit_ab_uint8(Min+5,20,50);Y--)
+            {
+                if(RightFindFlag[Y]==0){continue;}
+
+                if(RightLine[Y+5]-RightLine[Y+1]<=0){continue;}
+
+                if(RightLine[Y+4]-RightLine[Y+1]<=0){continue;}
+
+                if(RightLine[Y+3]-RightLine[Y+1]<=0){continue;}
+
+                if(RightLine[Y+5]-RightLine[Y+4]<0){continue;}
+
+                if(RightLine[Y+4]-RightLine[Y+3]<0){continue;}
+
+                if(RightLine[Y+3]-RightLine[Y+2]<0){continue;}
+
+                if(RightLine[Y-4]-RightLine[Y+1]<0){continue;}
+
+                if(RightLine[Y-3]-RightLine[Y+1]<0){continue;}
+
+                if(RightLine[Y-2]-RightLine[Y+1]<0){continue;}
+
+                Right_Middle_Knee.Have=Knee_Exist;
+                Right_Middle_Knee.Y=Y+1;
+                Right_Middle_Knee.X=RightLine[Y+1];
+            }
+        }
+    }
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+//  @brief      寻左中拐点
+//
+//  @return     null
+//-------------------------------------------------------------------------------------------------------------------
+void Image_Knee_Left_Middle_Now(uint8_t type )
+{
+    uint8_t Y;
+    uint8_t Max=56;
+    if(type==complex)
+    {
+        if(Left_Low_Knee.Have==Knee_Exist)
+        {
+            Max=Limit_ab_uint8(Left_Low_Knee.Y+2,0,68);
+            for(Y=Max;Y>Limit_ab_uint8(Min+5,20,50);Y--)
+            {
+                if(LeftFindFlag[Y]==0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y+5,0,68)]-LeftLine[Y+1] >=0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y+4,0,68)]-LeftLine[Y+1]>=0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y+3,0,68)]-LeftLine[Y+1]>=0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y+5,0,68)]-LeftLine[Limit_ab_uint8(Y+4,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y+4,0,68)]-LeftLine[Limit_ab_uint8(Y+3,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y+3,0,68)]-LeftLine[Limit_ab_uint8(Y+2,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y-4,0,68)]-LeftLine[Limit_ab_uint8(Y+1,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y-3,0,68)]-LeftLine[Limit_ab_uint8(Y+1,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y-2,0,68)]-LeftLine[Limit_ab_uint8(Y+1,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y-4,0,68)]-LeftLine[Limit_ab_uint8(Y-3,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y-3,0,68)]-LeftLine[Limit_ab_uint8(Y-2,0,68)]>0){continue;}
+
+                Left_Middle_Knee.Y=Y+1;
+                Left_Middle_Knee.X=LeftLine[Y+1];
+                Left_Middle_Knee.Have=Knee_Exist;
+                break;
+            }
+        }
+        else
+        {
+
+            for(Y=56;Y>Limit_ab_uint8(Min+5,20,50);Y--)
+            {
+                if(LeftFindFlag[Y]==0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y+5,0,68)]-LeftLine[Y+1] >=0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y+4,0,68)]-LeftLine[Y+1]>=0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y+3,0,68)]-LeftLine[Y+1]>=0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y+5,0,68)]-LeftLine[Limit_ab_uint8(Y+4,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y+4,0,68)]-LeftLine[Limit_ab_uint8(Y+3,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y+3,0,68)]-LeftLine[Limit_ab_uint8(Y+2,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y-4,0,68)]-LeftLine[Limit_ab_uint8(Y+1,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y-3,0,68)]-LeftLine[Limit_ab_uint8(Y+1,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y-2,0,68)]-LeftLine[Limit_ab_uint8(Y+1,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y-4,0,68)]-LeftLine[Limit_ab_uint8(Y-3,0,68)]>0){continue;}
+
+                if(LeftLine[Limit_ab_uint8(Y-3,0,68)]-LeftLine[Limit_ab_uint8(Y-2,0,68)]>0){continue;}
+
+                Left_Middle_Knee.Y=Y+1;
+                Left_Middle_Knee.X=LeftLine[Y+1];
+                Left_Middle_Knee.Have=Knee_Exist;
+                break;
+            }
+        }
+    }
 }
 
 uint8_t my_adapt_threshold(uint8_t *image,uint16_t col,uint16_t row)
@@ -114,8 +499,7 @@ uint8_t my_adapt_threshold(uint8_t *image,uint16_t col,uint16_t row)
     return threshold;
 }
 
-uint8_t OTSU_Th;
-uint8_t Image_Value = 80;
+
 void Binarization(void)
 {
     uint8_t threshold = 0;
@@ -139,49 +523,6 @@ void Binarization(void)
     }
 
 }
-
-#define left   0
-#define center 1
-#define right  2
-#define up     3
-
-#define MisEdge  0
-#define Normal   1
-#define UnNormal 2
-
-#define Limit_Range  10
-
-#define Up_LongLine_Left    0
-#define Up_LongLine_Centre  1
-#define Up_LongLine_Right   2
-
-#define Y_start 68
-
-float up_long_sum=0,up_long_num_sum=0;
-uint8_t Min,Up_Long_Line,Min_Line;
-uint8_t Underwind=28,Upwind=22;
-uint8_t Element_Top;
-uint8_t Realwind=40;//真实打脚行
-uint8_t Cut_Line=20;//截断行
-uint8_t LeftLine[row1]={0},RightLine[row1]={0};
-uint8_t RightFindFlag[row1]={0},LeftFindFlag[row1]={0};
-uint8_t fiv_width[row1]={0};//图像每一行的宽度
-uint8_t MidLine[row1]={0};//图像每一行的宽度
-uint8_t Up[188];
-
-uint8_t Up_Long_Line=94;
-uint8_t Up_LongLine_Tactics;
-
-Element_Type Element_Circle_LeftSide  ={Circle_LeftSide,UnLock,0};  //左圆环
-Element_Type Element_Circle_RightSide ={Circle_RightSide,UnLock,0}; //右圆环
-Element_Type Element_Centre_Cross     ={Centre_Cross,UnLock,0};     //中十字
-Element_Type Element_Left_Cross       ={Left_Cross,UnLock,0};       //左入十字
-Element_Type Element_Right_Cross      ={Right_Cross,UnLock,0};      //右入十字
-Element_Type Element_Right_Block      ={ Right_Block,UnLock,0};     //右路障
-Element_Type Element_Left_Block       ={ Left_Block,UnLock,0 };     //路障
-Element_Type Element_Garage           ={Garage,UnLock,0};           //车库
-Element_Type Element_Garage_Out       ={Garage_Out,UnLock,0};       //出库
-Element_Type Element_Ramp             ={Ramp,UnLock,0};             //坡道
 
 //-------------------------------------------------------------------------------------------------------------------
 //  @brief      检查锁
@@ -622,6 +963,47 @@ void Repair_Virsual(void)
 // 图像显示点函数（需要您自行实现，例如调用 ips114_draw_pixel）
 // void draw_pixel(uint8_t x, uint8_t y, uint8_t color);
 
+//画园
+void Draw_Circle(uint16_t x0, uint16_t y0, uint16_t r, uint16_t color)
+{
+    int x = 0;
+    int y = r;
+    // 初始决策参数 P
+    int p = 3 - (r << 1); 
+
+    // 画圆的八个对称点
+    // 
+    while (x <= y) {
+        // 画出 (x, y) 及其关于原点的八个对称点
+        // 1. (x, y)
+        ips114_draw_point(x0 + x, y0 + y, color);
+        // 2. (-x, y)
+        ips114_draw_point(x0 - x, y0 + y, color);
+        // 3. (x, -y)
+        ips114_draw_point(x0 + x, y0 - y, color);
+        // 4. (-x, -y)
+        ips114_draw_point(x0 - x, y0 - y, color);
+        
+        // 5. (y, x)
+        ips114_draw_point(x0 + y, y0 + x, color);
+        // 6. (-y, x)
+        ips114_draw_point(x0 - y, y0 + x, color);
+        // 7. (y, -x)
+        ips114_draw_point(x0 + y, y0 - x, color);
+        // 8. (-y, -x)
+        ips114_draw_point(x0 - y, y0 - x, color);
+
+        if (p < 0) {
+            // 中点在圆内或圆上，选择 (x+1, y)
+            p += (x << 2) + 6; // P_next = P_current + 4*x + 6
+        } else {
+            // 中点在圆外，选择 (x+1, y-1)
+            p += ((x - y) << 2) + 10; // P_next = P_current + 4*(x-y) + 10
+            y--;
+        }
+        x++;
+    }
+}
 void display_lane_lines(void)
 {
     uint8_t Y;
@@ -686,12 +1068,38 @@ void display_lane_lines(void)
          ips114_draw_point(Up_Long_Line + 1, Min, RGB565_GREEN);
     }
 
-   ips114_show_int(50,70,MidX,3);
-   ips114_show_int(50,90,Lock_display,3);
-   ips114_show_int(50,110,LeftLine[Y_start],3);
-   ips114_show_int(80,70,RightLine[Y_start],3);
-   ips114_show_int(80,90,Lock_display,3);
-   //ips114_show_int(80,110,Min,3);
+    if(Right_Up_Knee.Have==Knee_Exist)
+    {
+        Draw_Circle(Right_Up_Knee.X,Right_Up_Knee.Y,3,RGB565_MAGENTA);
+    }
+    if(Right_Low_Knee.Have==Knee_Exist)
+    {
+        Draw_Circle(Right_Low_Knee.X,Right_Low_Knee.Y,3,RGB565_MAGENTA);
+    }
+//    else if(Right_Middle_Knee.Have==Knee_Exist)
+//    {
+//        Draw_Circle(Right_Middle_Knee.X,Right_Middle_Knee.Y,3,RGB565_MAGENTA);
+//    }
+    if(Left_Up_Knee.Have==Knee_Exist)
+    {
+        Draw_Circle(Left_Up_Knee.X,Left_Up_Knee.Y,3,RGB565_MAGENTA);
+    }
+    if(Left_Low_Knee.Have==Knee_Exist)
+    {
+        Draw_Circle(Left_Low_Knee.X,Left_Low_Knee.Y,3,RGB565_MAGENTA);
+    }
+//    else if(Left_Middle_Knee.Have==Knee_Exist)
+//    {
+//        Draw_Circle(Left_Middle_Knee.X,Left_Middle_Knee.Y,3,RGB565_MAGENTA);
+//    }
+
+
+   ips114_show_int(50,70,Variance_l,3);
+   ips114_show_int(50,90,Variance_low_l,3);
+   ips114_show_int(50,110,Right_Middle_Knee.Have,3);
+   ips114_show_int(90,70,Variance_r,3);
+   ips114_show_int(90,90,Variance_low_r,3);
+   ips114_show_int(90,110,Left_Middle_Knee.Have,3);
 }
 
 float control_error;
@@ -785,8 +1193,6 @@ void Realwind_Process(void)
         }
     }
      Control_Mid = MidLine[Realwind];
-     ips114_show_int(110,90,control_error,3);
-     ips114_show_int(110,110,Realwind,3);
 
 }
 
@@ -830,6 +1236,30 @@ void  Cal_StartLine(uint8_t cut)
     }
 }
 
+void Image_handle(void)
+{
+    Left_Knee_Sum=0,Right_Knee_Sum=0,Up_Knee_Sum=0,Low_Knee_Sum=0,Low_Knee_Sum_Easy=0;
+    Image_Knee_Right_Low_Now(complex);
+    Image_Knee_Right_Up_Now(complex);
+    Image_Knee_Left_Low_Now(complex);
+    Image_Knee_Left_Up_Now(complex);
+    Image_Knee_Right_Middle_Now(complex);
+    Image_Knee_Left_Middle_Now(complex);
+
+    Knee_Find_flag=1;
+
+    if(Right_Up_Knee.Have==Knee_Exist)  {Right_Knee_Sum++;Up_Knee_Sum++;}
+    if(Right_Low_Knee.Have==Knee_Exist) {Right_Knee_Sum++;Low_Knee_Sum++;}
+
+    if(Left_Up_Knee.Have==Knee_Exist)   {Left_Knee_Sum++;Up_Knee_Sum++;}
+    if(Left_Low_Knee.Have==Knee_Exist)  {Left_Knee_Sum++;Low_Knee_Sum++;}
+
+    Variance_low_l=Variance_Count_Now(Limit_ab_uint8(Min, 20, 66),66,0);
+    Variance_low_r=Variance_Count_Now(Limit_ab_uint8(Min, 20, 66),66,2);
+    //方差统计
+    Variance_l=Variance_Count_Now(Min, 68,0);
+    Variance_r=Variance_Count_Now(Min, 68,2);
+}
 
 void self_mtv90x_process(void)
 {
@@ -841,6 +1271,7 @@ void self_mtv90x_process(void)
         Repair_Virsual();
         Cal_StartLine(Min);
         Realwind_Process();
+        Image_handle();
         //ips114_displayimage03x((const uint8_t *)Process_Array, MT9V03X_W, MT9V03X_H);
         ips114_show_gray_image(0, 0, (const uint8_t *)Process_Array, col1, row1, col1, row1, 0);       // 显示灰度图像
         display_lane_lines();
@@ -850,7 +1281,7 @@ void self_mtv90x_process(void)
             if(Min>66)
             {
                 Outside_Flag=1;
-                ips114_show_int(80,110,1,1);
+                ips114_show_int(140,110,1,1);
             }
             else
             {

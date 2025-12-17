@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc18048a --dep-file=self_math.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\BSP -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\Control -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\Fuzzy -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\Math -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\Motor -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\Servo -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\mtv90x -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\pid -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Comm -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\General -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Time -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Lin -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Spi -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Icu -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\PwmBc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\PwmHl -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\TPwm -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\TimerWithTrigger -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif\\\\Cam -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Trap -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Dsadc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Rdc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts\\\\Dts -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Emem -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Emem\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray\\\\Eray -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth\\\\Phy_Pef7071 -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce\\\\Crc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft\\\\Fft -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\PwmHl -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Timer -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tim -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tim\\\\In -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\Pwm -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\PwmHl -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\Timer -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Trig -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl\\\\Hssl -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c\\\\I2c -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom\\\\Driver -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc\\\\Msc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican\\\\Can -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Io -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5 -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5\\\\Psi5 -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s\\\\Psi5s -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiSlave -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent\\\\Sent -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Smu -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Smu\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Timer -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\InternalMux -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\zf_common -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\zf_components -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\zf_device -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\zf_driver -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o code/Math/self_math.src ../code/Math/self_math.c"
+	.compiler_invocation	"ctc -f cc27636a --dep-file=self_math.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\BSP -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\Control -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\Fuzzy -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\Math -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\Motor -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\Servo -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\mtv90x -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\code\\\\pid -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Comm -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\General -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Time -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Lin -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Spi -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Icu -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\PwmBc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\PwmHl -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\TPwm -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\TimerWithTrigger -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif\\\\Cam -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Trap -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Dsadc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Rdc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts\\\\Dts -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Emem -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Emem\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray\\\\Eray -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth\\\\Phy_Pef7071 -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce\\\\Crc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft\\\\Fft -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\PwmHl -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Timer -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tim -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tim\\\\In -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\Pwm -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\PwmHl -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\Timer -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Trig -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl\\\\Hssl -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c\\\\I2c -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom\\\\Driver -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc\\\\Msc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican\\\\Can -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Io -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5 -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5\\\\Psi5 -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s\\\\Psi5s -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiSlave -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent\\\\Sent -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Smu -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Smu\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Timer -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\InternalMux -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\zf_common -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\zf_components -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\zf_device -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\zf_driver -ID:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o code/Math/self_math.src ../code/Math/self_math.c"
 	.compiler_name		"ctc"
 	;source	'../code/Math/self_math.c'
 
@@ -13,32 +13,32 @@ $TC16X
 	
 	.global	Limit_ab_uint8
 ; Function Limit_ab_uint8
-.L18:
+.L78:
 Limit_ab_uint8:	.type	func
 	jge.u	d4,d5,.L2
-.L74:
+.L249:
 	mov	d2,d5
-.L57:
+.L178:
 	j	.L3
 .L2:
 	jge.u	d6,d4,.L4
-.L75:
+.L250:
 	mov	d2,d6
-.L58:
+.L179:
 	j	.L5
 .L4:
 	mov	d2,d4
-.L59:
+.L180:
 	j	.L6
 .L6:
 .L5:
 .L3:
 	ret
-.L43:
+.L141:
 	
 __Limit_ab_uint8_function_end:
 	.size	Limit_ab_uint8,__Limit_ab_uint8_function_end-Limit_ab_uint8
-.L31:
+.L95:
 	; End of function
 	
 	.sdecl	'.text.self_math.Limit_ab_int',code,cluster('Limit_ab_int')
@@ -47,32 +47,32 @@ __Limit_ab_uint8_function_end:
 	
 	.global	Limit_ab_int
 ; Function Limit_ab_int
-.L20:
+.L80:
 Limit_ab_int:	.type	func
 	jge	d4,d5,.L7
-.L80:
+.L255:
 	mov	d2,d5
-.L60:
+.L181:
 	j	.L8
 .L7:
 	jge	d6,d4,.L9
-.L81:
+.L256:
 	mov	d2,d6
-.L61:
+.L182:
 	j	.L10
 .L9:
 	mov	d2,d4
-.L62:
+.L183:
 	j	.L11
 .L11:
 .L10:
 .L8:
 	ret
-.L48:
+.L146:
 	
 __Limit_ab_int_function_end:
 	.size	Limit_ab_int,__Limit_ab_int_function_end-Limit_ab_int
-.L36:
+.L100:
 	; End of function
 	
 	.sdecl	'.text.self_math.Limit_ab_float',code,cluster('Limit_ab_float')
@@ -81,56 +81,930 @@ __Limit_ab_int_function_end:
 	
 	.global	Limit_ab_float
 ; Function Limit_ab_float
-.L22:
+.L82:
 Limit_ab_float:	.type	func
 	cmp.f	d15,d4,d5
 	extr.u	d15,d15,#0,#1
-.L86:
+.L261:
 	jeq	d15,#0,.L12
-.L87:
+.L262:
 	mov	d2,d5
-.L63:
+.L184:
 	j	.L13
 .L12:
 	cmp.f	d15,d4,d6
 	extr.u	d15,d15,#2,#1
-.L88:
+.L263:
 	jeq	d15,#0,.L14
-.L89:
+.L264:
 	mov	d2,d6
-.L64:
+.L185:
 	j	.L15
 .L14:
 	mov	d2,d4
-.L65:
+.L186:
 	j	.L16
 .L16:
 .L15:
 .L13:
 	ret
-.L53:
+.L151:
 	
 __Limit_ab_float_function_end:
 	.size	Limit_ab_float,__Limit_ab_float_function_end-Limit_ab_float
-.L41:
+.L105:
 	; End of function
 	
+	.sdecl	'.text.self_math.Regression_now',code,cluster('Regression_now')
+	.sect	'.text.self_math.Regression_now'
+	.align	2
+	
+	.global	Regression_now
+; Function Regression_now
+.L84:
+Regression_now:	.type	func
+	mov	d7,d4
+.L189:
+	mov	d15,d6
+.L191:
+	mov	d2,#0
+.L192:
+	mov	d8,#0
+.L193:
+	mov	d6,#0
+.L188:
+	mov	d3,#0
+.L195:
+	mov	d4,#0
+.L187:
+	jne	d15,#0,.L17
+.L269:
+	mov	d0,d5
+.L196:
+	j	.L18
+.L19:
+	movh.a	a15,#@his(LeftLine)
+	lea	a15,[a15]@los(LeftLine)
+.L270:
+	ld.bu	d1,[a15]1
+.L271:
+	mov	d15,#184
+.L272:
+	jge.u	d15,d1,.L20
+.L273:
+	j	.L21
+.L20:
+	add	d2,#1
+.L274:
+	itof	d1,d0
+.L275:
+	add.f	d8,d8,d1
+.L276:
+	movh.a	a15,#@his(LeftLine)
+	lea	a15,[a15]@los(LeftLine)
+.L277:
+	addsc.a	a15,a15,d0,#0
+	ld.bu	d1,[a15]
+	utof	d1,d1
+.L278:
+	add.f	d6,d6,d1
+.L279:
+	add	d0,#-1
+.L18:
+	jlt	d7,d0,.L19
+.L21:
+	jne	d2,#0,.L22
+.L280:
+	mov	d2,#1
+.L22:
+	itof	d0,d2
+.L197:
+	div.f	d7,d8,d0
+.L190:
+	itof	d0,d2
+.L281:
+	div.f	d6,d6,d0
+.L194:
+	mov	d15,d5
+.L198:
+	j	.L23
+.L24:
+	movh.a	a15,#@his(LeftLine)
+	lea	a15,[a15]@los(LeftLine)
+.L282:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+	utof	d0,d0
+.L283:
+	sub.f	d0,d0,d6
+.L284:
+	itof	d1,d15
+.L285:
+	sub.f	d1,d1,d7
+.L286:
+	madd.f	d3,d3,d0,d1
+.L287:
+	itof	d0,d15
+.L288:
+	sub.f	d0,d0,d7
+.L289:
+	itof	d1,d15
+.L290:
+	sub.f	d1,d1,d7
+.L291:
+	madd.f	d4,d4,d0,d1
+.L292:
+	add	d15,#-1
+.L23:
+	sub	d0,d5,d2
+.L293:
+	jlt	d0,d15,.L24
+.L294:
+	extr.u	d15,d4,#23,#8
+.L199:
+	eq	d15,d15,#0
+.L295:
+	jeq	d15,#0,.L25
+.L296:
+	movh.a	a15,#@his(Regression_K_L)
+	lea	a15,[a15]@los(Regression_K_L)
+.L297:
+	div.f	d15,d3,d4
+.L298:
+	st.w	[a15],d15
+.L25:
+	movh.a	a15,#@his(Regression_B_L)
+	lea	a15,[a15]@los(Regression_B_L)
+.L299:
+	movh.a	a2,#@his(Regression_K_L)
+	lea	a2,[a2]@los(Regression_K_L)
+	ld.w	d15,[a2]
+.L300:
+	msub.f	d15,d6,d15,d7
+.L301:
+	st.w	[a15],d15
+.L302:
+	j	.L26
+.L17:
+	jne	d15,#2,.L27
+.L303:
+	mov	d15,d5
+.L202:
+	j	.L28
+.L29:
+	movh.a	a15,#@his(RightLine)
+	lea	a15,[a15]@los(RightLine)
+.L304:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+.L305:
+	jge.u	d0,#4,.L30
+.L306:
+	j	.L31
+.L30:
+	add	d2,#1
+.L307:
+	itof	d0,d15
+.L308:
+	add.f	d8,d8,d0
+.L309:
+	movh.a	a15,#@his(RightLine)
+	lea	a15,[a15]@los(RightLine)
+.L310:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+	utof	d0,d0
+.L311:
+	add.f	d6,d6,d0
+.L312:
+	add	d15,#-1
+.L28:
+	jlt	d7,d15,.L29
+.L31:
+	jne	d2,#0,.L32
+.L313:
+	mov	d2,#1
+.L32:
+	itof	d15,d2
+.L203:
+	div.f	d7,d8,d15
+.L200:
+	itof	d15,d2
+.L314:
+	div.f	d6,d6,d15
+.L201:
+	mov	d15,d5
+.L204:
+	j	.L33
+.L34:
+	movh.a	a15,#@his(RightLine)
+	lea	a15,[a15]@los(RightLine)
+.L315:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+	utof	d0,d0
+.L316:
+	sub.f	d0,d0,d6
+.L317:
+	itof	d1,d15
+.L318:
+	sub.f	d1,d1,d7
+.L319:
+	madd.f	d3,d3,d0,d1
+.L320:
+	itof	d0,d15
+.L321:
+	sub.f	d0,d0,d7
+.L322:
+	itof	d1,d15
+.L323:
+	sub.f	d1,d1,d7
+.L324:
+	madd.f	d4,d4,d0,d1
+.L325:
+	add	d15,#-1
+.L33:
+	sub	d0,d5,d2
+.L326:
+	jlt	d0,d15,.L34
+.L327:
+	extr.u	d15,d4,#23,#8
+.L205:
+	jeq	d15,#0,.L35
+.L328:
+	movh.a	a15,#@his(Regression_K_R)
+	lea	a15,[a15]@los(Regression_K_R)
+.L329:
+	div.f	d15,d3,d4
+.L330:
+	st.w	[a15],d15
+.L331:
+	j	.L36
+.L35:
+	movh.a	a15,#@his(Regression_K_R)
+	lea	a15,[a15]@los(Regression_K_R)
+.L332:
+	mov	d15,#0
+.L333:
+	st.w	[a15],d15
+.L36:
+	movh.a	a15,#@his(Regression_B_R)
+	lea	a15,[a15]@los(Regression_B_R)
+.L334:
+	movh.a	a2,#@his(Regression_K_R)
+	lea	a2,[a2]@los(Regression_K_R)
+	ld.w	d15,[a2]
+.L335:
+	msub.f	d15,d6,d15,d7
+.L336:
+	st.w	[a15],d15
+.L337:
+	j	.L37
+.L27:
+	jne	d15,#1,.L38
+.L338:
+	mov	d15,d5
+.L208:
+	j	.L39
+.L40:
+	movh.a	a15,#@his(MidLine)
+	lea	a15,[a15]@los(MidLine)
+.L339:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+.L340:
+	jlt.u	d0,#4,.L41
+.L341:
+	movh.a	a15,#@his(MidLine)
+	lea	a15,[a15]@los(MidLine)
+.L342:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+.L343:
+	mov	d1,#184
+.L344:
+	jge.u	d1,d0,.L42
+.L41:
+	j	.L43
+.L42:
+	add	d2,#1
+.L345:
+	itof	d0,d15
+.L346:
+	add.f	d8,d8,d0
+.L347:
+	movh.a	a15,#@his(MidLine)
+	lea	a15,[a15]@los(MidLine)
+.L348:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+	utof	d0,d0
+.L349:
+	add.f	d6,d6,d0
+.L350:
+	add	d15,#-1
+.L39:
+	jlt	d7,d15,.L40
+.L43:
+	jeq	d2,#0,.L44
+.L351:
+	itof	d15,d2
+.L209:
+	div.f	d7,d8,d15
+.L206:
+	itof	d15,d2
+.L352:
+	div.f	d6,d6,d15
+.L207:
+	j	.L45
+.L44:
+	mov	d7,#0
+.L210:
+	mov	d6,#0
+.L45:
+	mov	d15,d5
+.L211:
+	j	.L46
+.L47:
+	movh.a	a15,#@his(MidLine)
+	lea	a15,[a15]@los(MidLine)
+.L353:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+	utof	d0,d0
+.L354:
+	sub.f	d0,d0,d6
+.L355:
+	itof	d1,d15
+.L356:
+	sub.f	d1,d1,d7
+.L357:
+	madd.f	d3,d3,d0,d1
+.L358:
+	itof	d0,d15
+.L359:
+	sub.f	d0,d0,d7
+.L360:
+	itof	d1,d15
+.L361:
+	sub.f	d1,d1,d7
+.L362:
+	madd.f	d4,d4,d0,d1
+.L363:
+	add	d15,#-1
+.L46:
+	sub	d0,d5,d2
+.L364:
+	jlt	d0,d15,.L47
+.L365:
+	extr.u	d15,d4,#23,#8
+.L212:
+	jeq	d15,#0,.L48
+.L366:
+	movh.a	a15,#@his(Regression_K_M)
+	lea	a15,[a15]@los(Regression_K_M)
+.L367:
+	div.f	d15,d3,d4
+.L368:
+	st.w	[a15],d15
+.L369:
+	j	.L49
+.L48:
+	movh.a	a15,#@his(Regression_K_M)
+	lea	a15,[a15]@los(Regression_K_M)
+.L370:
+	mov	d15,#0
+.L371:
+	st.w	[a15],d15
+.L49:
+	movh.a	a15,#@his(Regression_B_M)
+	lea	a15,[a15]@los(Regression_B_M)
+.L372:
+	movh.a	a2,#@his(Regression_K_M)
+	lea	a2,[a2]@los(Regression_K_M)
+	ld.w	d15,[a2]
+.L373:
+	msub.f	d15,d6,d15,d7
+.L374:
+	st.w	[a15],d15
+.L375:
+	j	.L50
+.L38:
+	jne	d15,#3,.L51
+.L376:
+	mov	d15,d5
+.L215:
+	j	.L52
+.L53:
+	add	d2,#1
+.L377:
+	itof	d0,d15
+.L378:
+	add.f	d8,d8,d0
+.L379:
+	movh.a	a15,#@his(Up)
+	lea	a15,[a15]@los(Up)
+.L380:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+	utof	d0,d0
+.L381:
+	add.f	d6,d6,d0
+.L382:
+	add	d15,#-1
+.L52:
+	jlt	d7,d15,.L53
+.L383:
+	jne	d2,#0,.L54
+.L384:
+	mov	d2,#1
+.L54:
+	itof	d15,d2
+.L216:
+	div.f	d7,d8,d15
+.L213:
+	itof	d15,d2
+.L385:
+	div.f	d6,d6,d15
+.L214:
+	mov	d15,d5
+.L217:
+	j	.L55
+.L56:
+	movh.a	a15,#@his(Up)
+	lea	a15,[a15]@los(Up)
+.L386:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+	utof	d0,d0
+.L387:
+	sub.f	d0,d0,d6
+.L388:
+	itof	d1,d15
+.L389:
+	sub.f	d1,d1,d7
+.L390:
+	madd.f	d3,d3,d0,d1
+.L391:
+	itof	d0,d15
+.L392:
+	sub.f	d0,d0,d7
+.L393:
+	itof	d1,d15
+.L394:
+	sub.f	d1,d1,d7
+.L395:
+	madd.f	d4,d4,d0,d1
+.L396:
+	add	d15,#-1
+.L55:
+	sub	d0,d5,d2
+.L397:
+	jlt	d0,d15,.L56
+.L398:
+	extr.u	d15,d4,#23,#8
+.L218:
+	jeq	d15,#0,.L57
+.L399:
+	movh.a	a15,#@his(Regression_K_U)
+	lea	a15,[a15]@los(Regression_K_U)
+.L400:
+	div.f	d15,d3,d4
+.L401:
+	st.w	[a15],d15
+.L402:
+	j	.L58
+.L57:
+	movh.a	a15,#@his(Regression_K_U)
+	lea	a15,[a15]@los(Regression_K_U)
+.L403:
+	mov	d15,#0
+.L404:
+	st.w	[a15],d15
+.L58:
+	movh.a	a15,#@his(Regression_B_U)
+	lea	a15,[a15]@los(Regression_B_U)
+.L405:
+	movh.a	a2,#@his(Regression_K_U)
+	lea	a2,[a2]@los(Regression_K_U)
+	ld.w	d15,[a2]
+.L406:
+	msub.f	d15,d6,d15,d7
+.L407:
+	st.w	[a15],d15
+.L51:
+.L50:
+.L37:
+.L26:
+	j	.L59
+.L59:
+	ret
+.L155:
+	
+__Regression_now_function_end:
+	.size	Regression_now,__Regression_now_function_end-Regression_now
+.L110:
+	; End of function
+	
+	.sdecl	'.text.self_math.Variance_Count_Now',code,cluster('Variance_Count_Now')
+	.sect	'.text.self_math.Variance_Count_Now'
+	.align	2
+	
+	.global	Variance_Count_Now
+; Function Variance_Count_Now
+.L86:
+Variance_Count_Now:	.type	func
+	mov	d8,d5
+.L220:
+	mov	d15,d6
+.L221:
+	mov	d9,#0
+.L223:
+	mov	d5,d8
+	mov	d6,d15
+	call	Regression_now
+.L219:
+	mov	d5,d2
+.L224:
+	jne	d15,#0,.L60
+.L412:
+	mov	d15,d8
+.L222:
+	j	.L61
+.L62:
+	movh.a	a15,#@his(LeftLine)
+	lea	a15,[a15]@los(LeftLine)
+.L413:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+	utof	d0,d0
+.L414:
+	utof	d1,d15
+.L415:
+	movh.a	a15,#@his(Regression_K_L)
+	lea	a15,[a15]@los(Regression_K_L)
+	ld.w	d2,[a15]
+.L416:
+	movh.a	a15,#@his(Regression_B_L)
+	lea	a15,[a15]@los(Regression_B_L)
+	ld.w	d3,[a15]
+.L417:
+	madd.f	d1,d3,d1,d2
+.L418:
+	sub.f	d0,d0,d1
+.L419:
+	movh.a	a15,#@his(LeftLine)
+	lea	a15,[a15]@los(LeftLine)
+.L420:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d1,[a15]
+	utof	d1,d1
+.L421:
+	utof	d2,d15
+.L422:
+	movh.a	a15,#@his(Regression_K_L)
+	lea	a15,[a15]@los(Regression_K_L)
+	ld.w	d3,[a15]
+.L423:
+	movh.a	a15,#@his(Regression_B_L)
+	lea	a15,[a15]@los(Regression_B_L)
+	ld.w	d4,[a15]
+.L424:
+	madd.f	d2,d4,d2,d3
+.L425:
+	sub.f	d1,d1,d2
+.L426:
+	madd.f	d9,d9,d0,d1
+.L427:
+	add	d15,#-1
+.L225:
+	extr.u	d15,d15,#0,#8
+.L61:
+	sub	d0,d8,d5
+.L428:
+	jlt	d0,d15,.L62
+.L429:
+	itof	d15,d5
+.L226:
+	div.f	d2,d9,d15
+.L227:
+	j	.L63
+.L60:
+	jne	d15,#1,.L64
+.L430:
+	mov	d15,d8
+.L228:
+	j	.L65
+.L66:
+	movh.a	a15,#@his(MidLine)
+	lea	a15,[a15]@los(MidLine)
+.L431:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+	utof	d0,d0
+.L432:
+	utof	d1,d15
+.L433:
+	movh.a	a15,#@his(Regression_K_M)
+	lea	a15,[a15]@los(Regression_K_M)
+	ld.w	d2,[a15]
+.L434:
+	movh.a	a15,#@his(Regression_B_M)
+	lea	a15,[a15]@los(Regression_B_M)
+	ld.w	d3,[a15]
+.L435:
+	madd.f	d1,d3,d1,d2
+.L436:
+	sub.f	d0,d0,d1
+.L437:
+	movh.a	a15,#@his(MidLine)
+	lea	a15,[a15]@los(MidLine)
+.L438:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d1,[a15]
+	utof	d1,d1
+.L439:
+	utof	d2,d15
+.L440:
+	movh.a	a15,#@his(Regression_K_M)
+	lea	a15,[a15]@los(Regression_K_M)
+	ld.w	d3,[a15]
+.L441:
+	movh.a	a15,#@his(Regression_B_M)
+	lea	a15,[a15]@los(Regression_B_M)
+	ld.w	d4,[a15]
+.L442:
+	madd.f	d2,d4,d2,d3
+.L443:
+	sub.f	d1,d1,d2
+.L444:
+	madd.f	d9,d9,d0,d1
+.L445:
+	add	d15,#-1
+.L229:
+	extr.u	d15,d15,#0,#8
+.L65:
+	sub	d0,d8,d5
+.L446:
+	jlt	d0,d15,.L66
+.L447:
+	itof	d15,d5
+.L230:
+	div.f	d2,d9,d15
+.L231:
+	j	.L67
+.L64:
+	jne	d15,#2,.L68
+.L448:
+	mov	d15,d8
+.L232:
+	j	.L69
+.L70:
+	movh.a	a15,#@his(RightLine)
+	lea	a15,[a15]@los(RightLine)
+.L449:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+	utof	d0,d0
+.L450:
+	utof	d1,d15
+.L451:
+	movh.a	a15,#@his(Regression_K_R)
+	lea	a15,[a15]@los(Regression_K_R)
+	ld.w	d2,[a15]
+.L452:
+	movh.a	a15,#@his(Regression_B_R)
+	lea	a15,[a15]@los(Regression_B_R)
+	ld.w	d3,[a15]
+.L453:
+	madd.f	d1,d3,d1,d2
+.L454:
+	sub.f	d0,d0,d1
+.L455:
+	movh.a	a15,#@his(RightLine)
+	lea	a15,[a15]@los(RightLine)
+.L456:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d1,[a15]
+	utof	d1,d1
+.L457:
+	utof	d2,d15
+.L458:
+	movh.a	a15,#@his(Regression_K_R)
+	lea	a15,[a15]@los(Regression_K_R)
+	ld.w	d3,[a15]
+.L459:
+	movh.a	a15,#@his(Regression_B_R)
+	lea	a15,[a15]@los(Regression_B_R)
+	ld.w	d4,[a15]
+.L460:
+	madd.f	d2,d4,d2,d3
+.L461:
+	sub.f	d1,d1,d2
+.L462:
+	madd.f	d9,d9,d0,d1
+.L463:
+	add	d15,#-1
+.L233:
+	extr.u	d15,d15,#0,#8
+.L69:
+	sub	d0,d8,d5
+.L464:
+	jlt	d0,d15,.L70
+.L465:
+	itof	d15,d5
+.L234:
+	div.f	d2,d9,d15
+.L235:
+	j	.L71
+.L68:
+	jne	d15,#3,.L72
+.L466:
+	mov	d15,d8
+.L236:
+	j	.L73
+.L74:
+	movh.a	a15,#@his(Up)
+	lea	a15,[a15]@los(Up)
+.L467:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d0,[a15]
+	utof	d0,d0
+.L468:
+	utof	d1,d15
+.L469:
+	movh.a	a15,#@his(Regression_K_U)
+	lea	a15,[a15]@los(Regression_K_U)
+	ld.w	d2,[a15]
+.L470:
+	movh.a	a15,#@his(Regression_B_U)
+	lea	a15,[a15]@los(Regression_B_U)
+	ld.w	d3,[a15]
+.L471:
+	madd.f	d1,d3,d1,d2
+.L472:
+	sub.f	d0,d0,d1
+.L473:
+	movh.a	a15,#@his(Up)
+	lea	a15,[a15]@los(Up)
+.L474:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d1,[a15]
+	utof	d1,d1
+.L475:
+	utof	d2,d15
+.L476:
+	movh.a	a15,#@his(Regression_K_U)
+	lea	a15,[a15]@los(Regression_K_U)
+	ld.w	d3,[a15]
+.L477:
+	movh.a	a15,#@his(Regression_B_U)
+	lea	a15,[a15]@los(Regression_B_U)
+	ld.w	d4,[a15]
+.L478:
+	madd.f	d2,d4,d2,d3
+.L479:
+	sub.f	d1,d1,d2
+.L480:
+	madd.f	d9,d9,d0,d1
+.L481:
+	add	d15,#-1
+.L237:
+	extr.u	d15,d15,#0,#8
+.L73:
+	sub	d0,d8,d5
+.L482:
+	jlt	d0,d15,.L74
+.L483:
+	itof	d15,d5
+.L238:
+	div.f	d2,d9,d15
+.L239:
+	j	.L75
+.L72:
+	mov	d2,#0
+.L240:
+	j	.L76
+.L76:
+.L75:
+.L71:
+.L67:
+.L63:
+	ret
+.L167:
+	
+__Variance_Count_Now_function_end:
+	.size	Variance_Count_Now,__Variance_Count_Now_function_end-Variance_Count_Now
+.L115:
+	; End of function
+	
+	.sdecl	'.bss.self_math.Regression_B_M',data,cluster('Regression_B_M')
+	.sect	'.bss.self_math.Regression_B_M'
+	.global	Regression_B_M
+	.align	2
+Regression_B_M:	.type	object
+	.size	Regression_B_M,4
+	.space	4
+	.sdecl	'.bss.self_math.Regression_K_M',data,cluster('Regression_K_M')
+	.sect	'.bss.self_math.Regression_K_M'
+	.global	Regression_K_M
+	.align	2
+Regression_K_M:	.type	object
+	.size	Regression_K_M,4
+	.space	4
+	.sdecl	'.bss.self_math.Regression_B_L',data,cluster('Regression_B_L')
+	.sect	'.bss.self_math.Regression_B_L'
+	.global	Regression_B_L
+	.align	2
+Regression_B_L:	.type	object
+	.size	Regression_B_L,4
+	.space	4
+	.sdecl	'.bss.self_math.Regression_K_L',data,cluster('Regression_K_L')
+	.sect	'.bss.self_math.Regression_K_L'
+	.global	Regression_K_L
+	.align	2
+Regression_K_L:	.type	object
+	.size	Regression_K_L,4
+	.space	4
+	.sdecl	'.bss.self_math.Regression_B_R',data,cluster('Regression_B_R')
+	.sect	'.bss.self_math.Regression_B_R'
+	.global	Regression_B_R
+	.align	2
+Regression_B_R:	.type	object
+	.size	Regression_B_R,4
+	.space	4
+	.sdecl	'.bss.self_math.Regression_K_R',data,cluster('Regression_K_R')
+	.sect	'.bss.self_math.Regression_K_R'
+	.global	Regression_K_R
+	.align	2
+Regression_K_R:	.type	object
+	.size	Regression_K_R,4
+	.space	4
+	.sdecl	'.bss.self_math.Regression_B_U',data,cluster('Regression_B_U')
+	.sect	'.bss.self_math.Regression_B_U'
+	.global	Regression_B_U
+	.align	2
+Regression_B_U:	.type	object
+	.size	Regression_B_U,4
+	.space	4
+	.sdecl	'.bss.self_math.Regression_K_U',data,cluster('Regression_K_U')
+	.sect	'.bss.self_math.Regression_K_U'
+	.global	Regression_K_U
+	.align	2
+Regression_K_U:	.type	object
+	.size	Regression_K_U,4
+	.space	4
+	.sdecl	'.bss.self_math.Regression_B_L_P',data,cluster('Regression_B_L_P')
+	.sect	'.bss.self_math.Regression_B_L_P'
+	.global	Regression_B_L_P
+	.align	2
+Regression_B_L_P:	.type	object
+	.size	Regression_B_L_P,4
+	.space	4
+	.sdecl	'.bss.self_math.Regression_K_L_P',data,cluster('Regression_K_L_P')
+	.sect	'.bss.self_math.Regression_K_L_P'
+	.global	Regression_K_L_P
+	.align	2
+Regression_K_L_P:	.type	object
+	.size	Regression_K_L_P,4
+	.space	4
+	.sdecl	'.bss.self_math.Regression_B_R_P',data,cluster('Regression_B_R_P')
+	.sect	'.bss.self_math.Regression_B_R_P'
+	.global	Regression_B_R_P
+	.align	2
+Regression_B_R_P:	.type	object
+	.size	Regression_B_R_P,4
+	.space	4
+	.sdecl	'.bss.self_math.Regression_K_R_P',data,cluster('Regression_K_R_P')
+	.sect	'.bss.self_math.Regression_K_R_P'
+	.global	Regression_K_R_P
+	.align	2
+Regression_K_R_P:	.type	object
+	.size	Regression_K_R_P,4
+	.space	4
+	.calls	'Variance_Count_Now','Regression_now'
 	.calls	'Limit_ab_uint8','',0
 	.calls	'Limit_ab_int','',0
 	.calls	'Limit_ab_float','',0
+	.calls	'Regression_now','',0
+	.extern	LeftLine
+	.extern	RightLine
+	.extern	MidLine
+	.extern	Up
+	.calls	'Variance_Count_Now','',0
 	.sdecl	'.debug_info',debug
 	.sect	'.debug_info'
-.L24:
-	.word	140684
+.L88:
+	.word	140810
 	.half	3
-	.word	.L25
+	.word	.L89
 	.byte	4
-.L23:
+.L87:
 	.byte	1
 	.byte	'../code/Math/self_math.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1
-	.word	.L26
+	.word	.L90
 	.byte	2,1,1,3
 	.word	182
 	.byte	4
@@ -139,7 +1013,7 @@ __Limit_ab_float_function_end:
 	.word	185
 	.byte	6,0,7
 	.byte	'__fract',0,4,128,1
-.L52:
+.L150:
 	.byte	7
 	.byte	'float',0,4,4,8
 	.byte	'Ifx__float_to_fract',0,3,1,152,2,18
@@ -167,7 +1041,7 @@ __Limit_ab_float_function_end:
 	.word	328
 	.byte	6,0,7
 	.byte	'unsigned int',0,4,7
-.L47:
+.L145:
 	.byte	7
 	.byte	'int',0,4,5,7
 	.byte	'unsigned int',0,4,7,10
@@ -193,7 +1067,7 @@ __Limit_ab_float_function_end:
 	.byte	'B',0
 	.word	485
 	.byte	4,2,35,0,0
-.L42:
+.L140:
 	.byte	7
 	.byte	'unsigned char',0,1,8,7
 	.byte	'unsigned short int',0,2,7,10
@@ -19305,7 +20179,7 @@ __Limit_ab_float_function_end:
 	.byte	'SEEKFREE_ASSISTANT_SCC8660',0,3,0,26
 	.byte	'seekfree_assistant_image_type_enum',0,47,86,2
 	.word	140222
-	.byte	17,48,17,9,1,18
+	.byte	17,48,19,9,1,18
 	.byte	'Element_Null',0,0,18
 	.byte	'Circle_LeftSide',0,1,18
 	.byte	'Circle_RightSide',0,2,18
@@ -19319,17 +20193,36 @@ __Limit_ab_float_function_end:
 	.byte	'Garage',0,10,18
 	.byte	'Garage_Out',0,11,18
 	.byte	'Ramp',0,12,0,26
-	.byte	'Element_enum',0,48,48,2
+	.byte	'Element_enum',0,48,50,2
 	.word	140443
-	.byte	17,48,52,9,1,18
+	.byte	17,48,54,9,1,18
 	.byte	'UnLock',0,0,18
 	.byte	'Lock',0,1,0,26
-	.byte	'Lock_enum',0,48,57,2
+	.byte	'Lock_enum',0,48,59,2
 	.word	140647
-	.byte	0
+	.byte	17,48,71,9,1,18
+	.byte	'Knee_Null',0,0,18
+	.byte	'Knee_Exist',0,1,0,26
+	.byte	'Have_enum',0,48,75,2
+	.word	140687
+	.byte	32
+	.word	621
+	.byte	33,0,34
+	.byte	'LeftLine',0,48,103,16
+	.word	140736
+	.byte	1,1,34
+	.byte	'RightLine',0,48,104,16
+	.word	140736
+	.byte	1,1,34
+	.byte	'MidLine',0,48,105,16
+	.word	140736
+	.byte	1,1,34
+	.byte	'Up',0,48,106,16
+	.word	140736
+	.byte	1,1,0
 	.sdecl	'.debug_abbrev',debug
 	.sect	'.debug_abbrev'
-.L25:
+.L89:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,21,0,54,15,39,12,0,0,3,15,0,73,19,0,0,4,46,1,3,8,32,13
 	.byte	58,15,59,15,57,15,54,15,39,12,0,0,5,5,0,3,8,58,15,59,15,57,15,73,19,0,0,6,11,0,0,0,7,36,0,3,8,11,15,62
 	.byte	15,0,0,8,46,1,3,8,32,13,58,15,59,15,57,15,73,19,54,15,39,12,0,0,9,59,0,3,8,0,0,10,19,1,3,8,58,15,59,15
@@ -19338,15 +20231,15 @@ __Limit_ab_float_function_end:
 	.byte	15,57,15,11,15,0,0,18,40,0,3,8,28,13,0,0,19,11,1,0,0,20,19,1,58,15,59,15,57,15,11,15,0,0,21,46,1,49,19
 	.byte	0,0,22,5,0,49,19,0,0,23,29,1,49,19,0,0,24,11,0,49,19,0,0,25,11,1,49,19,0,0,26,22,0,3,8,58,15,59,15,57
 	.byte	15,73,19,0,0,27,21,0,54,15,0,0,28,38,0,73,19,0,0,29,21,1,54,15,39,12,0,0,30,5,0,73,19,0,0,31,21,1,73,19
-	.byte	54,15,39,12,0,0,0
+	.byte	54,15,39,12,0,0,32,1,1,73,19,0,0,33,33,0,0,0,34,52,0,3,8,58,15,59,15,57,15,73,19,63,12,60,12,0,0,0
 	.sdecl	'.debug_line',debug
 	.sect	'.debug_line'
-.L26:
-	.word	.L67-.L66
-.L66:
+.L90:
+	.word	.L242-.L241
+.L241:
 	.half	3
-	.word	.L69-.L68
-.L68:
+	.word	.L244-.L243
+.L243:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
 	.byte	'D:\\\\TC264_p\\\\TC264_CAR\\\\E8_13_mt9v03x_ips114_display_demo\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg',0
 	.byte	'D:\\Car\\Aurix\\AURIX-Studio-1.10.2\\tools\\Compilers\\Tasking_1.1r8\\ctc\\include\\',0
@@ -19430,306 +20323,1605 @@ __Limit_ab_float_function_end:
 	.byte	'zf_device_wifi_spi.h',0,8,0,0
 	.byte	'seekfree_assistant.h',0,9,0,0
 	.byte	'Self_mtv90x.h',0,10,0,0,0
-.L69:
-.L67:
+.L244:
+.L242:
 	.sdecl	'.debug_info',debug,cluster('Limit_ab_uint8')
 	.sect	'.debug_info'
-.L27:
+.L91:
 	.word	278
 	.half	3
-	.word	.L28
+	.word	.L92
 	.byte	4,1
 	.byte	'../code/Math/self_math.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1
-	.word	.L30,.L29
+	.word	.L94,.L93
 	.byte	2
-	.word	.L23
+	.word	.L87
 	.byte	3
-	.byte	'Limit_ab_uint8',0,1,4,9
-	.word	.L42
+	.byte	'Limit_ab_uint8',0,1,17,9
+	.word	.L140
 	.byte	1,1,1
-	.word	.L18,.L43,.L17
+	.word	.L78,.L141,.L77
 	.byte	4
-	.byte	'x',0,1,4,32
-	.word	.L42,.L44
+	.byte	'x',0,1,17,32
+	.word	.L140,.L142
 	.byte	4
-	.byte	'a',0,1,4,42
-	.word	.L42,.L45
+	.byte	'a',0,1,17,42
+	.word	.L140,.L143
 	.byte	4
-	.byte	'b',0,1,4,52
-	.word	.L42,.L46
+	.byte	'b',0,1,17,52
+	.word	.L140,.L144
 	.byte	5
-	.word	.L18,.L43
+	.word	.L78,.L141
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('Limit_ab_uint8')
 	.sect	'.debug_abbrev'
-.L28:
+.L92:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('Limit_ab_uint8')
 	.sect	'.debug_line'
-.L29:
-	.word	.L71-.L70
-.L70:
+.L93:
+	.word	.L246-.L245
+.L245:
 	.half	3
-	.word	.L73-.L72
-.L72:
+	.word	.L248-.L247
+.L247:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/Math/self_math.c',0,0,0,0,0
-.L73:
+.L248:
 	.byte	5,5,7,0,5,2
-	.word	.L18
-	.byte	3,5,1,5,12,7,9
-	.half	.L74-.L18
+	.word	.L78
+	.byte	3,18,1,5,12,7,9
+	.half	.L249-.L78
 	.byte	1,5,5,9
-	.half	.L2-.L74
+	.half	.L2-.L249
 	.byte	3,1,1,5,12,7,9
-	.half	.L75-.L2
+	.half	.L250-.L2
 	.byte	1,5,5,9
-	.half	.L4-.L75
+	.half	.L4-.L250
 	.byte	3,1,1,5,1,9
 	.half	.L3-.L4
 	.byte	3,1,1,7,9
-	.half	.L31-.L3
+	.half	.L95-.L3
 	.byte	0,1,1
-.L71:
+.L246:
 	.sdecl	'.debug_ranges',debug,cluster('Limit_ab_uint8')
 	.sect	'.debug_ranges'
-.L30:
-	.word	-1,.L18,0,.L31-.L18,0,0
+.L94:
+	.word	-1,.L78,0,.L95-.L78,0,0
 	.sdecl	'.debug_info',debug,cluster('Limit_ab_int')
 	.sect	'.debug_info'
-.L32:
+.L96:
 	.word	276
 	.half	3
-	.word	.L33
+	.word	.L97
 	.byte	4,1
 	.byte	'../code/Math/self_math.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1
-	.word	.L35,.L34
+	.word	.L99,.L98
 	.byte	2
-	.word	.L23
+	.word	.L87
 	.byte	3
-	.byte	'Limit_ab_int',0,1,12,5
-	.word	.L47
+	.byte	'Limit_ab_int',0,1,25,5
+	.word	.L145
 	.byte	1,1,1
-	.word	.L20,.L48,.L19
+	.word	.L80,.L146,.L79
 	.byte	4
-	.byte	'x',0,1,12,22
-	.word	.L47,.L49
+	.byte	'x',0,1,25,22
+	.word	.L145,.L147
 	.byte	4
-	.byte	'a',0,1,12,28
-	.word	.L47,.L50
+	.byte	'a',0,1,25,28
+	.word	.L145,.L148
 	.byte	4
-	.byte	'b',0,1,12,34
-	.word	.L47,.L51
+	.byte	'b',0,1,25,34
+	.word	.L145,.L149
 	.byte	5
-	.word	.L20,.L48
+	.word	.L80,.L146
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('Limit_ab_int')
 	.sect	'.debug_abbrev'
-.L33:
+.L97:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('Limit_ab_int')
 	.sect	'.debug_line'
-.L34:
-	.word	.L77-.L76
-.L76:
+.L98:
+	.word	.L252-.L251
+.L251:
 	.half	3
-	.word	.L79-.L78
-.L78:
+	.word	.L254-.L253
+.L253:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/Math/self_math.c',0,0,0,0,0
-.L79:
+.L254:
 	.byte	5,5,7,0,5,2
-	.word	.L20
-	.byte	3,13,1,5,12,7,9
-	.half	.L80-.L20
+	.word	.L80
+	.byte	3,26,1,5,12,7,9
+	.half	.L255-.L80
 	.byte	1,5,5,9
-	.half	.L7-.L80
+	.half	.L7-.L255
 	.byte	3,1,1,5,12,7,9
-	.half	.L81-.L7
+	.half	.L256-.L7
 	.byte	1,5,5,9
-	.half	.L9-.L81
+	.half	.L9-.L256
 	.byte	3,1,1,5,1,9
 	.half	.L8-.L9
 	.byte	3,1,1,7,9
-	.half	.L36-.L8
+	.half	.L100-.L8
 	.byte	0,1,1
-.L77:
+.L252:
 	.sdecl	'.debug_ranges',debug,cluster('Limit_ab_int')
 	.sect	'.debug_ranges'
-.L35:
-	.word	-1,.L20,0,.L36-.L20,0,0
+.L99:
+	.word	-1,.L80,0,.L100-.L80,0,0
 	.sdecl	'.debug_info',debug,cluster('Limit_ab_float')
 	.sect	'.debug_info'
-.L37:
+.L101:
 	.word	278
 	.half	3
-	.word	.L38
+	.word	.L102
 	.byte	4,1
 	.byte	'../code/Math/self_math.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1
-	.word	.L40,.L39
+	.word	.L104,.L103
 	.byte	2
-	.word	.L23
+	.word	.L87
 	.byte	3
-	.byte	'Limit_ab_float',0,1,19,7
-	.word	.L52
+	.byte	'Limit_ab_float',0,1,32,7
+	.word	.L150
 	.byte	1,1,1
-	.word	.L22,.L53,.L21
+	.word	.L82,.L151,.L81
 	.byte	4
-	.byte	'x',0,1,19,28
-	.word	.L52,.L54
+	.byte	'x',0,1,32,28
+	.word	.L150,.L152
 	.byte	4
-	.byte	'a',0,1,19,36
-	.word	.L52,.L55
+	.byte	'a',0,1,32,36
+	.word	.L150,.L153
 	.byte	4
-	.byte	'b',0,1,19,44
-	.word	.L52,.L56
+	.byte	'b',0,1,32,44
+	.word	.L150,.L154
 	.byte	5
-	.word	.L22,.L53
+	.word	.L82,.L151
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('Limit_ab_float')
 	.sect	'.debug_abbrev'
-.L38:
+.L102:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('Limit_ab_float')
 	.sect	'.debug_line'
-.L39:
-	.word	.L83-.L82
-.L82:
+.L103:
+	.word	.L258-.L257
+.L257:
 	.half	3
-	.word	.L85-.L84
-.L84:
+	.word	.L260-.L259
+.L259:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/Math/self_math.c',0,0,0,0,0
-.L85:
+.L260:
 	.byte	5,9,7,0,5,2
-	.word	.L22
-	.byte	3,20,1,5,5,9
-	.half	.L86-.L22
+	.word	.L82
+	.byte	3,33,1,5,5,9
+	.half	.L261-.L82
 	.byte	1,5,12,7,9
-	.half	.L87-.L86
+	.half	.L262-.L261
 	.byte	1,5,9,9
-	.half	.L12-.L87
+	.half	.L12-.L262
 	.byte	3,1,1,5,5,9
-	.half	.L88-.L12
+	.half	.L263-.L12
 	.byte	1,5,12,7,9
-	.half	.L89-.L88
+	.half	.L264-.L263
 	.byte	1,5,5,9
-	.half	.L14-.L89
+	.half	.L14-.L264
 	.byte	3,1,1,5,1,9
 	.half	.L13-.L14
 	.byte	3,1,1,7,9
-	.half	.L41-.L13
+	.half	.L105-.L13
 	.byte	0,1,1
-.L83:
+.L258:
 	.sdecl	'.debug_ranges',debug,cluster('Limit_ab_float')
 	.sect	'.debug_ranges'
-.L40:
-	.word	-1,.L22,0,.L41-.L22,0,0
+.L104:
+	.word	-1,.L82,0,.L105-.L82,0,0
+	.sdecl	'.debug_info',debug,cluster('Regression_now')
+	.sect	'.debug_info'
+.L106:
+	.word	445
+	.half	3
+	.word	.L107
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1
+	.word	.L109,.L108
+	.byte	2
+	.word	.L87
+	.byte	3
+	.byte	'Regression_now',0,1,47,5
+	.word	.L145
+	.byte	1,1,1
+	.word	.L84,.L155,.L83
+	.byte	4
+	.byte	'startline',0,1,47,24
+	.word	.L145,.L156
+	.byte	4
+	.byte	'endline',0,1,47,38
+	.word	.L145,.L157
+	.byte	4
+	.byte	'type',0,1,47,50
+	.word	.L145,.L158
+	.byte	5
+	.word	.L84,.L155
+	.byte	6
+	.byte	'i',0,1,49,9
+	.word	.L145,.L159
+	.byte	6
+	.byte	'sumlines',0,1,50,9
+	.word	.L145,.L160
+	.byte	6
+	.byte	'sumX',0,1,51,11
+	.word	.L150,.L161
+	.byte	6
+	.byte	'sumY',0,1,52,11
+	.word	.L150,.L162
+	.byte	6
+	.byte	'averageX',0,1,53,11
+	.word	.L150,.L163
+	.byte	6
+	.byte	'averageY',0,1,54,11
+	.word	.L150,.L164
+	.byte	6
+	.byte	'sumUp',0,1,55,11
+	.word	.L150,.L165
+	.byte	6
+	.byte	'sumDown',0,1,56,11
+	.word	.L150,.L166
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('Regression_now')
+	.sect	'.debug_abbrev'
+.L107:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('Regression_now')
+	.sect	'.debug_line'
+.L108:
+	.word	.L266-.L265
+.L265:
+	.half	3
+	.word	.L268-.L267
+.L267:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/Math/self_math.c',0,0,0,0,0
+.L268:
+	.byte	5,5,7,0,5,2
+	.word	.L84
+	.byte	3,46,1,5,18,9
+	.half	.L191-.L84
+	.byte	3,3,1,5,16,9
+	.half	.L192-.L191
+	.byte	3,1,1,9
+	.half	.L193-.L192
+	.byte	3,1,1,5,17,9
+	.half	.L188-.L193
+	.byte	3,3,1,5,19,9
+	.half	.L195-.L188
+	.byte	3,1,1,5,5,9
+	.half	.L187-.L195
+	.byte	3,2,1,5,14,7,9
+	.half	.L269-.L187
+	.byte	3,2,1,5,34,9
+	.half	.L196-.L269
+	.byte	1,5,16,9
+	.half	.L19-.L196
+	.byte	3,2,1,5,24,9
+	.half	.L270-.L19
+	.byte	1,5,28,9
+	.half	.L271-.L270
+	.byte	1,5,13,9
+	.half	.L272-.L271
+	.byte	1,5,32,7,9
+	.half	.L273-.L272
+	.byte	1,5,21,9
+	.half	.L20-.L273
+	.byte	3,1,1,5,19,9
+	.half	.L274-.L20
+	.byte	3,1,1,5,17,9
+	.half	.L275-.L274
+	.byte	1,5,19,9
+	.half	.L276-.L275
+	.byte	3,1,1,5,27,9
+	.half	.L277-.L276
+	.byte	1,5,17,9
+	.half	.L278-.L277
+	.byte	1,5,36,9
+	.half	.L279-.L278
+	.byte	3,123,1,5,34,9
+	.half	.L18-.L279
+	.byte	1,5,9,7,9
+	.half	.L21-.L18
+	.byte	3,7,1,5,32,7,9
+	.half	.L280-.L21
+	.byte	1,5,23,9
+	.half	.L22-.L280
+	.byte	3,1,1,5,22,9
+	.half	.L197-.L22
+	.byte	1,5,23,9
+	.half	.L190-.L197
+	.byte	3,1,1,5,22,9
+	.half	.L281-.L190
+	.byte	1,5,14,9
+	.half	.L194-.L281
+	.byte	3,2,1,5,41,9
+	.half	.L198-.L194
+	.byte	1,5,21,9
+	.half	.L24-.L198
+	.byte	3,2,1,5,29,9
+	.half	.L282-.L24
+	.byte	1,5,32,9
+	.half	.L283-.L282
+	.byte	1,5,44,9
+	.half	.L284-.L283
+	.byte	1,5,45,9
+	.half	.L285-.L284
+	.byte	1,5,18,9
+	.half	.L286-.L285
+	.byte	1,5,24,9
+	.half	.L287-.L286
+	.byte	3,1,1,5,25,9
+	.half	.L288-.L287
+	.byte	1,5,37,9
+	.half	.L289-.L288
+	.byte	1,5,38,9
+	.half	.L290-.L289
+	.byte	1,5,20,9
+	.half	.L291-.L290
+	.byte	1,5,43,9
+	.half	.L292-.L291
+	.byte	3,125,1,5,32,9
+	.half	.L23-.L292
+	.byte	1,5,41,9
+	.half	.L293-.L23
+	.byte	1,5,19,7,9
+	.half	.L294-.L293
+	.byte	3,5,1,5,9,9
+	.half	.L295-.L294
+	.byte	1,5,23,7,9
+	.half	.L296-.L295
+	.byte	1,5,43,9
+	.half	.L297-.L296
+	.byte	1,5,37,9
+	.half	.L298-.L297
+	.byte	1,5,9,9
+	.half	.L25-.L298
+	.byte	3,1,1,5,33,9
+	.half	.L299-.L25
+	.byte	1,5,32,9
+	.half	.L300-.L299
+	.byte	1,5,23,9
+	.half	.L301-.L300
+	.byte	1,5,56,9
+	.half	.L302-.L301
+	.byte	1,5,10,9
+	.half	.L17-.L302
+	.byte	3,3,1,5,16,7,9
+	.half	.L303-.L17
+	.byte	3,2,1,5,40,9
+	.half	.L202-.L303
+	.byte	1,5,16,9
+	.half	.L29-.L202
+	.byte	3,4,1,5,25,9
+	.half	.L304-.L29
+	.byte	1,5,13,9
+	.half	.L305-.L304
+	.byte	1,5,32,7,9
+	.half	.L306-.L305
+	.byte	1,5,21,9
+	.half	.L30-.L306
+	.byte	3,1,1,9
+	.half	.L307-.L30
+	.byte	3,1,1,5,18,9
+	.half	.L308-.L307
+	.byte	1,5,21,9
+	.half	.L309-.L308
+	.byte	3,1,1,5,30,9
+	.half	.L310-.L309
+	.byte	1,5,18,9
+	.half	.L311-.L310
+	.byte	1,5,43,9
+	.half	.L312-.L311
+	.byte	3,121,1,5,40,9
+	.half	.L28-.L312
+	.byte	1,5,9,7,9
+	.half	.L31-.L28
+	.byte	3,10,1,5,37,7,9
+	.half	.L313-.L31
+	.byte	1,5,27,9
+	.half	.L32-.L313
+	.byte	3,1,1,5,25,9
+	.half	.L203-.L32
+	.byte	1,5,27,9
+	.half	.L200-.L203
+	.byte	3,1,1,5,25,9
+	.half	.L314-.L200
+	.byte	1,5,16,9
+	.half	.L201-.L314
+	.byte	3,2,1,5,47,9
+	.half	.L204-.L201
+	.byte	1,5,23,9
+	.half	.L34-.L204
+	.byte	3,2,1,5,32,9
+	.half	.L315-.L34
+	.byte	1,5,36,9
+	.half	.L316-.L315
+	.byte	1,5,51,9
+	.half	.L317-.L316
+	.byte	1,5,53,9
+	.half	.L318-.L317
+	.byte	1,5,19,9
+	.half	.L319-.L318
+	.byte	1,5,25,9
+	.half	.L320-.L319
+	.byte	3,1,1,5,27,9
+	.half	.L321-.L320
+	.byte	1,5,42,9
+	.half	.L322-.L321
+	.byte	1,5,44,9
+	.half	.L323-.L322
+	.byte	1,5,21,9
+	.half	.L324-.L323
+	.byte	1,5,50,9
+	.half	.L325-.L324
+	.byte	3,125,1,5,38,9
+	.half	.L33-.L325
+	.byte	1,5,47,9
+	.half	.L326-.L33
+	.byte	1,5,9,7,9
+	.half	.L327-.L326
+	.byte	3,5,1,5,14,9
+	.half	.L328-.L327
+	.byte	3,1,1,5,37,9
+	.half	.L329-.L328
+	.byte	1,5,29,9
+	.half	.L330-.L329
+	.byte	1,5,45,9
+	.half	.L331-.L330
+	.byte	3,127,1,5,27,9
+	.half	.L35-.L331
+	.byte	1,5,44,9
+	.half	.L332-.L35
+	.byte	1,5,42,9
+	.half	.L333-.L332
+	.byte	1,5,9,9
+	.half	.L36-.L333
+	.byte	3,2,1,5,37,9
+	.half	.L334-.L36
+	.byte	1,5,35,9
+	.half	.L335-.L334
+	.byte	1,5,24,9
+	.half	.L336-.L335
+	.byte	1,5,62,9
+	.half	.L337-.L336
+	.byte	1,5,11,9
+	.half	.L27-.L337
+	.byte	3,2,1,5,16,7,9
+	.half	.L338-.L27
+	.byte	3,2,1,5,40,9
+	.half	.L208-.L338
+	.byte	1,5,15,9
+	.half	.L40-.L208
+	.byte	3,2,1,5,22,9
+	.half	.L339-.L40
+	.byte	1,5,15,9
+	.half	.L340-.L339
+	.byte	1,5,29,7,9
+	.half	.L341-.L340
+	.byte	1,5,36,9
+	.half	.L342-.L341
+	.byte	1,5,40,9
+	.half	.L343-.L342
+	.byte	1,5,39,9
+	.half	.L344-.L343
+	.byte	1,5,46,7,9
+	.half	.L41-.L344
+	.byte	1,5,20,9
+	.half	.L42-.L41
+	.byte	3,1,1,9
+	.half	.L345-.L42
+	.byte	3,1,1,5,17,9
+	.half	.L346-.L345
+	.byte	1,5,20,9
+	.half	.L347-.L346
+	.byte	3,1,1,5,27,9
+	.half	.L348-.L347
+	.byte	1,5,17,9
+	.half	.L349-.L348
+	.byte	1,5,43,9
+	.half	.L350-.L349
+	.byte	3,123,1,5,40,9
+	.half	.L39-.L350
+	.byte	1,5,8,7,9
+	.half	.L43-.L39
+	.byte	3,7,1,5,30,7,9
+	.half	.L351-.L43
+	.byte	3,2,1,5,28,9
+	.half	.L209-.L351
+	.byte	1,5,30,9
+	.half	.L206-.L209
+	.byte	3,1,1,5,28,9
+	.half	.L352-.L206
+	.byte	1,5,38,9
+	.half	.L207-.L352
+	.byte	3,127,1,5,21,9
+	.half	.L44-.L207
+	.byte	3,5,1,9
+	.half	.L210-.L44
+	.byte	3,1,1,5,15,9
+	.half	.L45-.L210
+	.byte	3,3,1,5,46,9
+	.half	.L211-.L45
+	.byte	1,5,22,9
+	.half	.L47-.L211
+	.byte	3,2,1,5,29,9
+	.half	.L353-.L47
+	.byte	1,5,33,9
+	.half	.L354-.L353
+	.byte	1,5,48,9
+	.half	.L355-.L354
+	.byte	1,5,50,9
+	.half	.L356-.L355
+	.byte	1,5,18,9
+	.half	.L357-.L356
+	.byte	1,5,24,9
+	.half	.L358-.L357
+	.byte	3,1,1,5,26,9
+	.half	.L359-.L358
+	.byte	1,5,41,9
+	.half	.L360-.L359
+	.byte	1,5,43,9
+	.half	.L361-.L360
+	.byte	1,5,20,9
+	.half	.L362-.L361
+	.byte	1,5,49,9
+	.half	.L363-.L362
+	.byte	3,125,1,5,37,9
+	.half	.L46-.L363
+	.byte	1,5,46,9
+	.half	.L364-.L46
+	.byte	1,5,8,7,9
+	.half	.L365-.L364
+	.byte	3,5,1,5,13,9
+	.half	.L366-.L365
+	.byte	3,1,1,5,36,9
+	.half	.L367-.L366
+	.byte	1,5,28,9
+	.half	.L368-.L367
+	.byte	1,5,44,9
+	.half	.L369-.L368
+	.byte	3,127,1,5,26,9
+	.half	.L48-.L369
+	.byte	1,5,43,9
+	.half	.L370-.L48
+	.byte	1,5,41,9
+	.half	.L371-.L370
+	.byte	1,5,8,9
+	.half	.L49-.L371
+	.byte	3,2,1,5,36,9
+	.half	.L372-.L49
+	.byte	1,5,34,9
+	.half	.L373-.L372
+	.byte	1,5,23,9
+	.half	.L374-.L373
+	.byte	1,5,61,9
+	.half	.L375-.L374
+	.byte	1,5,11,9
+	.half	.L38-.L375
+	.byte	3,2,1,5,16,7,9
+	.half	.L376-.L38
+	.byte	3,2,1,5,40,9
+	.half	.L215-.L376
+	.byte	1,5,21,9
+	.half	.L53-.L215
+	.byte	3,2,1,9
+	.half	.L377-.L53
+	.byte	3,1,1,5,18,9
+	.half	.L378-.L377
+	.byte	1,5,21,9
+	.half	.L379-.L378
+	.byte	3,1,1,5,23,9
+	.half	.L380-.L379
+	.byte	1,5,18,9
+	.half	.L381-.L380
+	.byte	1,5,43,9
+	.half	.L382-.L381
+	.byte	3,124,1,5,40,9
+	.half	.L52-.L382
+	.byte	1,5,9,7,9
+	.half	.L383-.L52
+	.byte	3,6,1,5,37,7,9
+	.half	.L384-.L383
+	.byte	1,5,27,9
+	.half	.L54-.L384
+	.byte	3,1,1,5,25,9
+	.half	.L216-.L54
+	.byte	1,5,27,9
+	.half	.L213-.L216
+	.byte	3,1,1,5,25,9
+	.half	.L385-.L213
+	.byte	1,5,16,9
+	.half	.L214-.L385
+	.byte	3,2,1,5,47,9
+	.half	.L217-.L214
+	.byte	1,5,23,9
+	.half	.L56-.L217
+	.byte	3,2,1,5,25,9
+	.half	.L386-.L56
+	.byte	1,5,29,9
+	.half	.L387-.L386
+	.byte	1,5,44,9
+	.half	.L388-.L387
+	.byte	1,5,46,9
+	.half	.L389-.L388
+	.byte	1,5,19,9
+	.half	.L390-.L389
+	.byte	1,5,25,9
+	.half	.L391-.L390
+	.byte	3,1,1,5,27,9
+	.half	.L392-.L391
+	.byte	1,5,42,9
+	.half	.L393-.L392
+	.byte	1,5,44,9
+	.half	.L394-.L393
+	.byte	1,5,21,9
+	.half	.L395-.L394
+	.byte	1,5,50,9
+	.half	.L396-.L395
+	.byte	3,125,1,5,38,9
+	.half	.L55-.L396
+	.byte	1,5,47,9
+	.half	.L397-.L55
+	.byte	1,5,9,7,9
+	.half	.L398-.L397
+	.byte	3,5,1,5,14,9
+	.half	.L399-.L398
+	.byte	3,1,1,5,37,9
+	.half	.L400-.L399
+	.byte	1,5,29,9
+	.half	.L401-.L400
+	.byte	1,5,45,9
+	.half	.L402-.L401
+	.byte	3,127,1,5,27,9
+	.half	.L57-.L402
+	.byte	1,5,44,9
+	.half	.L403-.L57
+	.byte	1,5,42,9
+	.half	.L404-.L403
+	.byte	1,5,9,9
+	.half	.L58-.L404
+	.byte	3,2,1,5,37,9
+	.half	.L405-.L58
+	.byte	1,5,35,9
+	.half	.L406-.L405
+	.byte	1,5,24,9
+	.half	.L407-.L406
+	.byte	1,5,4,9
+	.half	.L26-.L407
+	.byte	3,2,1,5,1,9
+	.half	.L59-.L26
+	.byte	3,1,1,7,9
+	.half	.L110-.L59
+	.byte	0,1,1
+.L266:
+	.sdecl	'.debug_ranges',debug,cluster('Regression_now')
+	.sect	'.debug_ranges'
+.L109:
+	.word	-1,.L84,0,.L110-.L84,0,0
+	.sdecl	'.debug_info',debug,cluster('Variance_Count_Now')
+	.sect	'.debug_info'
+.L111:
+	.word	454
+	.half	3
+	.word	.L112
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1
+	.word	.L114,.L113
+	.byte	2
+	.word	.L87
+	.byte	3
+	.byte	'Variance_Count_Now',0,1,166,1,7
+	.word	.L150
+	.byte	1,1,1
+	.word	.L86,.L167,.L85
+	.byte	4
+	.byte	'startline',0,1,166,1,34
+	.word	.L140,.L168
+	.byte	4
+	.byte	'endline',0,1,166,1,52
+	.word	.L140,.L169
+	.byte	4
+	.byte	'type',0,1,166,1,68
+	.word	.L140,.L170
+	.byte	5
+	.word	.L86,.L167
+	.byte	6
+	.byte	'i',0,1,168,1,13
+	.word	.L140,.L171
+	.byte	6
+	.byte	'sum',0,1,169,1,11
+	.word	.L150,.L172
+	.byte	6
+	.byte	'sumlines',0,1,170,1,9
+	.word	.L145,.L173
+	.byte	6
+	.byte	'Variance_M',0,1,171,1,11
+	.word	.L150,.L174
+	.byte	6
+	.byte	'Variance_L',0,1,172,1,11
+	.word	.L150,.L175
+	.byte	6
+	.byte	'Variance_R',0,1,173,1,11
+	.word	.L150,.L176
+	.byte	6
+	.byte	'Variance_U',0,1,174,1,11
+	.word	.L150,.L177
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('Variance_Count_Now')
+	.sect	'.debug_abbrev'
+.L112:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('Variance_Count_Now')
+	.sect	'.debug_line'
+.L113:
+	.word	.L409-.L408
+.L408:
+	.half	3
+	.word	.L411-.L410
+.L410:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/Math/self_math.c',0,0,0,0,0
+.L411:
+	.byte	5,7,7,0,5,2
+	.word	.L86
+	.byte	3,165,1,1,5,15,9
+	.half	.L221-.L86
+	.byte	3,3,1,5,49,9
+	.half	.L223-.L221
+	.byte	3,6,1,5,13,9
+	.half	.L219-.L223
+	.byte	1,5,5,9
+	.half	.L224-.L219
+	.byte	3,1,1,5,14,7,9
+	.half	.L412-.L224
+	.byte	3,2,1,5,41,9
+	.half	.L222-.L412
+	.byte	1,5,19,9
+	.half	.L62-.L222
+	.byte	3,2,1,5,27,9
+	.half	.L413-.L62
+	.byte	1,5,34,9
+	.half	.L414-.L413
+	.byte	1,5,38,9
+	.half	.L415-.L414
+	.byte	1,5,55,9
+	.half	.L416-.L415
+	.byte	1,5,53,9
+	.half	.L417-.L416
+	.byte	1,5,31,9
+	.half	.L418-.L417
+	.byte	1,5,12,9
+	.half	.L419-.L418
+	.byte	3,1,1,5,20,9
+	.half	.L420-.L419
+	.byte	1,5,27,9
+	.half	.L421-.L420
+	.byte	1,5,31,9
+	.half	.L422-.L421
+	.byte	1,5,48,9
+	.half	.L423-.L422
+	.byte	1,5,46,9
+	.half	.L424-.L423
+	.byte	1,5,24,9
+	.half	.L425-.L424
+	.byte	1,5,15,9
+	.half	.L426-.L425
+	.byte	3,127,1,5,43,9
+	.half	.L427-.L426
+	.byte	3,126,1,5,32,9
+	.half	.L61-.L427
+	.byte	1,5,41,9
+	.half	.L428-.L61
+	.byte	1,5,28,7,9
+	.half	.L429-.L428
+	.byte	3,5,1,5,26,9
+	.half	.L226-.L429
+	.byte	1,5,9,9
+	.half	.L227-.L226
+	.byte	3,1,1,5,10,9
+	.half	.L60-.L227
+	.byte	3,2,1,5,16,7,9
+	.half	.L430-.L60
+	.byte	3,2,1,5,47,9
+	.half	.L228-.L430
+	.byte	1,5,19,9
+	.half	.L66-.L228
+	.byte	3,2,1,5,26,9
+	.half	.L431-.L66
+	.byte	1,5,33,9
+	.half	.L432-.L431
+	.byte	1,5,37,9
+	.half	.L433-.L432
+	.byte	1,5,54,9
+	.half	.L434-.L433
+	.byte	1,5,52,9
+	.half	.L435-.L434
+	.byte	1,5,30,9
+	.half	.L436-.L435
+	.byte	1,5,19,9
+	.half	.L437-.L436
+	.byte	3,1,1,5,26,9
+	.half	.L438-.L437
+	.byte	1,5,33,9
+	.half	.L439-.L438
+	.byte	1,5,37,9
+	.half	.L440-.L439
+	.byte	1,5,54,9
+	.half	.L441-.L440
+	.byte	1,5,52,9
+	.half	.L442-.L441
+	.byte	1,5,30,9
+	.half	.L443-.L442
+	.byte	1,5,15,9
+	.half	.L444-.L443
+	.byte	3,127,1,5,50,9
+	.half	.L445-.L444
+	.byte	3,126,1,5,38,9
+	.half	.L65-.L445
+	.byte	1,5,47,9
+	.half	.L446-.L65
+	.byte	1,5,26,7,9
+	.half	.L447-.L446
+	.byte	3,5,1,5,24,9
+	.half	.L230-.L447
+	.byte	1,5,7,9
+	.half	.L231-.L230
+	.byte	3,2,1,5,10,9
+	.half	.L64-.L231
+	.byte	3,2,1,5,16,7,9
+	.half	.L448-.L64
+	.byte	3,2,1,5,47,9
+	.half	.L232-.L448
+	.byte	1,5,21,9
+	.half	.L70-.L232
+	.byte	3,2,1,5,30,9
+	.half	.L449-.L70
+	.byte	1,5,37,9
+	.half	.L450-.L449
+	.byte	1,5,41,9
+	.half	.L451-.L450
+	.byte	1,5,58,9
+	.half	.L452-.L451
+	.byte	1,5,56,9
+	.half	.L453-.L452
+	.byte	1,5,34,9
+	.half	.L454-.L453
+	.byte	1,5,21,9
+	.half	.L455-.L454
+	.byte	3,1,1,5,30,9
+	.half	.L456-.L455
+	.byte	1,5,37,9
+	.half	.L457-.L456
+	.byte	1,5,41,9
+	.half	.L458-.L457
+	.byte	1,5,58,9
+	.half	.L459-.L458
+	.byte	1,5,56,9
+	.half	.L460-.L459
+	.byte	1,5,34,9
+	.half	.L461-.L460
+	.byte	1,5,17,9
+	.half	.L462-.L461
+	.byte	3,127,1,5,50,9
+	.half	.L463-.L462
+	.byte	3,126,1,5,38,9
+	.half	.L69-.L463
+	.byte	1,5,47,9
+	.half	.L464-.L69
+	.byte	1,5,28,7,9
+	.half	.L465-.L464
+	.byte	3,5,1,5,26,9
+	.half	.L234-.L465
+	.byte	1,5,9,9
+	.half	.L235-.L234
+	.byte	3,2,1,5,10,9
+	.half	.L68-.L235
+	.byte	3,2,1,5,16,7,9
+	.half	.L466-.L68
+	.byte	3,2,1,5,47,9
+	.half	.L236-.L466
+	.byte	1,5,21,9
+	.half	.L74-.L236
+	.byte	3,2,1,5,23,9
+	.half	.L467-.L74
+	.byte	1,5,30,9
+	.half	.L468-.L467
+	.byte	1,5,34,9
+	.half	.L469-.L468
+	.byte	1,5,51,9
+	.half	.L470-.L469
+	.byte	1,5,49,9
+	.half	.L471-.L470
+	.byte	1,5,27,9
+	.half	.L472-.L471
+	.byte	1,5,21,9
+	.half	.L473-.L472
+	.byte	3,1,1,5,23,9
+	.half	.L474-.L473
+	.byte	1,5,30,9
+	.half	.L475-.L474
+	.byte	1,5,34,9
+	.half	.L476-.L475
+	.byte	1,5,51,9
+	.half	.L477-.L476
+	.byte	1,5,49,9
+	.half	.L478-.L477
+	.byte	1,5,27,9
+	.half	.L479-.L478
+	.byte	1,5,17,9
+	.half	.L480-.L479
+	.byte	3,127,1,5,50,9
+	.half	.L481-.L480
+	.byte	3,126,1,5,38,9
+	.half	.L73-.L481
+	.byte	1,5,47,9
+	.half	.L482-.L73
+	.byte	1,5,28,7,9
+	.half	.L483-.L482
+	.byte	3,5,1,5,26,9
+	.half	.L238-.L483
+	.byte	1,5,9,9
+	.half	.L239-.L238
+	.byte	3,2,1,5,12,9
+	.half	.L72-.L239
+	.byte	3,3,1,5,5,9
+	.half	.L240-.L72
+	.byte	1,5,1,9
+	.half	.L63-.L240
+	.byte	3,1,1,7,9
+	.half	.L115-.L63
+	.byte	0,1,1
+.L409:
+	.sdecl	'.debug_ranges',debug,cluster('Variance_Count_Now')
+	.sect	'.debug_ranges'
+.L114:
+	.word	-1,.L86,0,.L115-.L86,0,0
+	.sdecl	'.debug_info',debug,cluster('Regression_B_M')
+	.sect	'.debug_info'
+.L116:
+	.word	210
+	.half	3
+	.word	.L117
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1,2
+	.word	.L87
+	.byte	3
+	.byte	'Regression_B_M',0,20,4,7
+	.word	.L150
+	.byte	1,5,3
+	.word	Regression_B_M
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('Regression_B_M')
+	.sect	'.debug_abbrev'
+.L117:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('Regression_K_M')
+	.sect	'.debug_info'
+.L118:
+	.word	210
+	.half	3
+	.word	.L119
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1,2
+	.word	.L87
+	.byte	3
+	.byte	'Regression_K_M',0,20,5,7
+	.word	.L150
+	.byte	1,5,3
+	.word	Regression_K_M
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('Regression_K_M')
+	.sect	'.debug_abbrev'
+.L119:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('Regression_B_L')
+	.sect	'.debug_info'
+.L120:
+	.word	210
+	.half	3
+	.word	.L121
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1,2
+	.word	.L87
+	.byte	3
+	.byte	'Regression_B_L',0,20,6,7
+	.word	.L150
+	.byte	1,5,3
+	.word	Regression_B_L
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('Regression_B_L')
+	.sect	'.debug_abbrev'
+.L121:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('Regression_K_L')
+	.sect	'.debug_info'
+.L122:
+	.word	210
+	.half	3
+	.word	.L123
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1,2
+	.word	.L87
+	.byte	3
+	.byte	'Regression_K_L',0,20,7,7
+	.word	.L150
+	.byte	1,5,3
+	.word	Regression_K_L
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('Regression_K_L')
+	.sect	'.debug_abbrev'
+.L123:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('Regression_B_R')
+	.sect	'.debug_info'
+.L124:
+	.word	210
+	.half	3
+	.word	.L125
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1,2
+	.word	.L87
+	.byte	3
+	.byte	'Regression_B_R',0,20,8,7
+	.word	.L150
+	.byte	1,5,3
+	.word	Regression_B_R
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('Regression_B_R')
+	.sect	'.debug_abbrev'
+.L125:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('Regression_K_R')
+	.sect	'.debug_info'
+.L126:
+	.word	210
+	.half	3
+	.word	.L127
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1,2
+	.word	.L87
+	.byte	3
+	.byte	'Regression_K_R',0,20,9,7
+	.word	.L150
+	.byte	1,5,3
+	.word	Regression_K_R
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('Regression_K_R')
+	.sect	'.debug_abbrev'
+.L127:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('Regression_B_U')
+	.sect	'.debug_info'
+.L128:
+	.word	210
+	.half	3
+	.word	.L129
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1,2
+	.word	.L87
+	.byte	3
+	.byte	'Regression_B_U',0,20,10,7
+	.word	.L150
+	.byte	1,5,3
+	.word	Regression_B_U
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('Regression_B_U')
+	.sect	'.debug_abbrev'
+.L129:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('Regression_K_U')
+	.sect	'.debug_info'
+.L130:
+	.word	210
+	.half	3
+	.word	.L131
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1,2
+	.word	.L87
+	.byte	3
+	.byte	'Regression_K_U',0,20,11,7
+	.word	.L150
+	.byte	1,5,3
+	.word	Regression_K_U
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('Regression_K_U')
+	.sect	'.debug_abbrev'
+.L131:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('Regression_B_L_P')
+	.sect	'.debug_info'
+.L132:
+	.word	212
+	.half	3
+	.word	.L133
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1,2
+	.word	.L87
+	.byte	3
+	.byte	'Regression_B_L_P',0,20,12,7
+	.word	.L150
+	.byte	1,5,3
+	.word	Regression_B_L_P
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('Regression_B_L_P')
+	.sect	'.debug_abbrev'
+.L133:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('Regression_K_L_P')
+	.sect	'.debug_info'
+.L134:
+	.word	212
+	.half	3
+	.word	.L135
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1,2
+	.word	.L87
+	.byte	3
+	.byte	'Regression_K_L_P',0,20,13,7
+	.word	.L150
+	.byte	1,5,3
+	.word	Regression_K_L_P
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('Regression_K_L_P')
+	.sect	'.debug_abbrev'
+.L135:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('Regression_B_R_P')
+	.sect	'.debug_info'
+.L136:
+	.word	212
+	.half	3
+	.word	.L137
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1,2
+	.word	.L87
+	.byte	3
+	.byte	'Regression_B_R_P',0,20,14,7
+	.word	.L150
+	.byte	1,5,3
+	.word	Regression_B_R_P
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('Regression_B_R_P')
+	.sect	'.debug_abbrev'
+.L137:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('Regression_K_R_P')
+	.sect	'.debug_info'
+.L138:
+	.word	212
+	.half	3
+	.word	.L139
+	.byte	4,1
+	.byte	'../code/Math/self_math.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\TC264_p\\TC264_CAR\\E8_13_mt9v03x_ips114_display_demo\\Debug\\',0,12,1,2
+	.word	.L87
+	.byte	3
+	.byte	'Regression_K_R_P',0,20,15,7
+	.word	.L150
+	.byte	1,5,3
+	.word	Regression_K_R_P
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('Regression_K_R_P')
+	.sect	'.debug_abbrev'
+.L139:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
 	.sdecl	'.debug_loc',debug,cluster('Limit_ab_float')
 	.sect	'.debug_loc'
-.L21:
-	.word	-1,.L22,0,.L53-.L22
+.L81:
+	.word	-1,.L82,0,.L151-.L82
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L55:
-	.word	-1,.L22,0,.L53-.L22
+.L153:
+	.word	-1,.L82,0,.L151-.L82
 	.half	1
 	.byte	85
-	.word	.L63-.L22,.L12-.L22
+	.word	.L184-.L82,.L12-.L82
 	.half	1
 	.byte	82
 	.word	0,0
-.L56:
-	.word	-1,.L22,0,.L53-.L22
+.L154:
+	.word	-1,.L82,0,.L151-.L82
 	.half	1
 	.byte	86
-	.word	.L64-.L22,.L14-.L22
+	.word	.L185-.L82,.L14-.L82
 	.half	1
 	.byte	82
 	.word	0,0
-.L54:
-	.word	-1,.L22,0,.L53-.L22
+.L152:
+	.word	-1,.L82,0,.L151-.L82
 	.half	1
 	.byte	84
-	.word	.L65-.L22,.L13-.L22
+	.word	.L186-.L82,.L13-.L82
 	.half	1
 	.byte	82
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('Limit_ab_int')
 	.sect	'.debug_loc'
-.L19:
-	.word	-1,.L20,0,.L48-.L20
+.L79:
+	.word	-1,.L80,0,.L146-.L80
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L50:
-	.word	-1,.L20,0,.L48-.L20
+.L148:
+	.word	-1,.L80,0,.L146-.L80
 	.half	1
 	.byte	85
-	.word	.L60-.L20,.L7-.L20
+	.word	.L181-.L80,.L7-.L80
 	.half	1
 	.byte	82
 	.word	0,0
-.L51:
-	.word	-1,.L20,0,.L48-.L20
+.L149:
+	.word	-1,.L80,0,.L146-.L80
 	.half	1
 	.byte	86
-	.word	.L61-.L20,.L9-.L20
+	.word	.L182-.L80,.L9-.L80
 	.half	1
 	.byte	82
 	.word	0,0
-.L49:
-	.word	-1,.L20,0,.L48-.L20
+.L147:
+	.word	-1,.L80,0,.L146-.L80
 	.half	1
 	.byte	84
-	.word	.L62-.L20,.L8-.L20
+	.word	.L183-.L80,.L8-.L80
 	.half	1
 	.byte	82
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('Limit_ab_uint8')
 	.sect	'.debug_loc'
-.L17:
-	.word	-1,.L18,0,.L43-.L18
+.L77:
+	.word	-1,.L78,0,.L141-.L78
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L45:
-	.word	-1,.L18,0,.L43-.L18
+.L143:
+	.word	-1,.L78,0,.L141-.L78
 	.half	1
 	.byte	85
-	.word	.L57-.L18,.L2-.L18
+	.word	.L178-.L78,.L2-.L78
 	.half	1
 	.byte	82
 	.word	0,0
-.L46:
-	.word	-1,.L18,0,.L43-.L18
+.L144:
+	.word	-1,.L78,0,.L141-.L78
 	.half	1
 	.byte	86
-	.word	.L58-.L18,.L4-.L18
+	.word	.L179-.L78,.L4-.L78
 	.half	1
 	.byte	82
 	.word	0,0
-.L44:
-	.word	-1,.L18,0,.L43-.L18
+.L142:
+	.word	-1,.L78,0,.L141-.L78
 	.half	1
 	.byte	84
-	.word	.L59-.L18,.L3-.L18
+	.word	.L180-.L78,.L3-.L78
 	.half	1
 	.byte	82
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('Regression_now')
+	.sect	'.debug_loc'
+.L83:
+	.word	-1,.L84,0,.L155-.L84
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L163:
+	.word	-1,.L84,.L190-.L84,.L17-.L84
+	.half	1
+	.byte	87
+	.word	.L200-.L84,.L27-.L84
+	.half	1
+	.byte	87
+	.word	.L206-.L84,.L44-.L84
+	.half	1
+	.byte	87
+	.word	.L210-.L84,.L38-.L84
+	.half	1
+	.byte	87
+	.word	.L213-.L84,.L26-.L84
+	.half	1
+	.byte	87
+	.word	0,0
+.L164:
+	.word	-1,.L84,.L194-.L84,.L17-.L84
+	.half	1
+	.byte	86
+	.word	.L201-.L84,.L27-.L84
+	.half	1
+	.byte	86
+	.word	.L207-.L84,.L44-.L84
+	.half	1
+	.byte	86
+	.word	.L45-.L84,.L38-.L84
+	.half	1
+	.byte	86
+	.word	.L214-.L84,.L26-.L84
+	.half	1
+	.byte	86
+	.word	0,0
+.L157:
+	.word	-1,.L84,0,.L155-.L84
+	.half	1
+	.byte	85
+	.word	0,0
+.L159:
+	.word	-1,.L84,.L196-.L84,.L197-.L84
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L198-.L84,.L199-.L84
+	.half	1
+	.byte	95
+	.word	.L202-.L84,.L203-.L84
+	.half	1
+	.byte	95
+	.word	.L204-.L84,.L205-.L84
+	.half	1
+	.byte	95
+	.word	.L208-.L84,.L209-.L84
+	.half	1
+	.byte	95
+	.word	.L44-.L84,.L45-.L84
+	.half	1
+	.byte	95
+	.word	.L211-.L84,.L212-.L84
+	.half	1
+	.byte	95
+	.word	.L215-.L84,.L216-.L84
+	.half	1
+	.byte	95
+	.word	.L217-.L84,.L218-.L84
+	.half	1
+	.byte	95
+	.word	0,0
+.L156:
+	.word	-1,.L84,0,.L187-.L84
+	.half	1
+	.byte	84
+	.word	.L189-.L84,.L190-.L84
+	.half	1
+	.byte	87
+	.word	.L17-.L84,.L200-.L84
+	.half	1
+	.byte	87
+	.word	.L27-.L84,.L206-.L84
+	.half	1
+	.byte	87
+	.word	.L44-.L84,.L210-.L84
+	.half	1
+	.byte	87
+	.word	.L38-.L84,.L213-.L84
+	.half	1
+	.byte	87
+	.word	0,0
+.L166:
+	.word	-1,.L84,.L187-.L84,.L155-.L84
+	.half	1
+	.byte	84
+	.word	0,0
+.L165:
+	.word	-1,.L84,.L195-.L84,.L155-.L84
+	.half	1
+	.byte	83
+	.word	0,0
+.L161:
+	.word	-1,.L84,.L193-.L84,.L155-.L84
+	.half	1
+	.byte	88
+	.word	0,0
+.L162:
+	.word	-1,.L84,.L188-.L84,.L194-.L84
+	.half	1
+	.byte	86
+	.word	.L17-.L84,.L201-.L84
+	.half	1
+	.byte	86
+	.word	.L27-.L84,.L207-.L84
+	.half	1
+	.byte	86
+	.word	.L44-.L84,.L45-.L84
+	.half	1
+	.byte	86
+	.word	.L38-.L84,.L214-.L84
+	.half	1
+	.byte	86
+	.word	0,0
+.L160:
+	.word	-1,.L84,.L192-.L84,.L155-.L84
+	.half	1
+	.byte	82
+	.word	0,0
+.L158:
+	.word	-1,.L84,0,.L188-.L84
+	.half	1
+	.byte	86
+	.word	.L191-.L84,.L19-.L84
+	.half	1
+	.byte	95
+	.word	.L17-.L84,.L202-.L84
+	.half	1
+	.byte	95
+	.word	.L27-.L84,.L208-.L84
+	.half	1
+	.byte	95
+	.word	.L38-.L84,.L215-.L84
+	.half	1
+	.byte	95
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('Variance_Count_Now')
+	.sect	'.debug_loc'
+.L85:
+	.word	-1,.L86,0,.L167-.L86
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L175:
+	.word	-1,.L86,.L227-.L86,.L60-.L86
+	.half	1
+	.byte	82
+	.word	0,0
+.L174:
+	.word	-1,.L86,.L231-.L86,.L64-.L86
+	.half	1
+	.byte	82
+	.word	0,0
+.L176:
+	.word	-1,.L86,.L235-.L86,.L68-.L86
+	.half	1
+	.byte	82
+	.word	0,0
+.L177:
+	.word	-1,.L86,.L239-.L86,.L72-.L86
+	.half	1
+	.byte	82
+	.word	0,0
+.L169:
+	.word	-1,.L86,0,.L219-.L86
+	.half	1
+	.byte	85
+	.word	.L220-.L86,.L167-.L86
+	.half	1
+	.byte	88
+	.word	0,0
+.L171:
+	.word	-1,.L86,.L222-.L86,.L225-.L86
+	.half	1
+	.byte	95
+	.word	.L61-.L86,.L226-.L86
+	.half	1
+	.byte	95
+	.word	.L228-.L86,.L229-.L86
+	.half	1
+	.byte	95
+	.word	.L65-.L86,.L230-.L86
+	.half	1
+	.byte	95
+	.word	.L232-.L86,.L233-.L86
+	.half	1
+	.byte	95
+	.word	.L69-.L86,.L234-.L86
+	.half	1
+	.byte	95
+	.word	.L236-.L86,.L237-.L86
+	.half	1
+	.byte	95
+	.word	.L73-.L86,.L238-.L86
+	.half	1
+	.byte	95
+	.word	0,0
+.L168:
+	.word	-1,.L86,0,.L219-.L86
+	.half	1
+	.byte	84
+	.word	0,0
+.L172:
+	.word	-1,.L86,.L223-.L86,.L167-.L86
+	.half	1
+	.byte	89
+	.word	0,0
+.L173:
+	.word	-1,.L86,.L219-.L86,.L62-.L86
+	.half	1
+	.byte	82
+	.word	.L224-.L86,.L167-.L86
+	.half	1
+	.byte	85
+	.word	.L60-.L86,.L66-.L86
+	.half	1
+	.byte	82
+	.word	.L64-.L86,.L70-.L86
+	.half	1
+	.byte	82
+	.word	.L68-.L86,.L74-.L86
+	.half	1
+	.byte	82
+	.word	.L72-.L86,.L240-.L86
+	.half	1
+	.byte	82
+	.word	0,0
+.L170:
+	.word	-1,.L86,0,.L219-.L86
+	.half	1
+	.byte	86
+	.word	.L221-.L86,.L222-.L86
+	.half	1
+	.byte	95
+	.word	.L60-.L86,.L228-.L86
+	.half	1
+	.byte	95
+	.word	.L64-.L86,.L232-.L86
+	.half	1
+	.byte	95
+	.word	.L68-.L86,.L236-.L86
+	.half	1
+	.byte	95
+	.word	.L72-.L86,.L63-.L86
+	.half	1
+	.byte	95
 	.word	0,0
 	.sdecl	'.debug_frame',debug
 	.sect	'.debug_frame'
-.L90:
+.L484:
 	.word	48
 	.word	-1
 	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
@@ -19737,16 +21929,25 @@ __Limit_ab_float_function_end:
 	.sdecl	'.debug_frame',debug,cluster('Limit_ab_uint8')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L90,.L18,.L43-.L18
+	.word	.L484,.L78,.L141-.L78
 	.byte	8,18,8,19,8,20,8,21,8,22,8,23
 	.sdecl	'.debug_frame',debug,cluster('Limit_ab_int')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L90,.L20,.L48-.L20
+	.word	.L484,.L80,.L146-.L80
 	.byte	8,18,8,19,8,20,8,21,8,22,8,23
 	.sdecl	'.debug_frame',debug,cluster('Limit_ab_float')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L90,.L22,.L53-.L22
+	.word	.L484,.L82,.L151-.L82
 	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('Regression_now')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L484,.L84,.L155-.L84
+	.byte	8,19,8,20,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('Variance_Count_Now')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L484,.L86,.L167-.L86
 	; Module end

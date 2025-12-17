@@ -80,7 +80,7 @@ void Servo_Control(float error)
            pwm_set_duty(SERVO_MOTOR_PWM, Servo_angle);   // 舵机输出 PWM，但不进行阿克曼差速计算 (类似于急停时保持转向角)
         }
     }
-    ips114_show_int(110,70,Servo_error,3);
+
 }
 
 

@@ -1,0 +1,979 @@
+
+#include "Self_mtv90x.h"
+
+#define row1 70
+#define col1 188
+#define WHITE_Pixie 255
+#define BLACK_Pixie 0
+
+#define easy    0
+#define complex 1
+#define veryeasy 2
+
+#define dist_d 2        //down,向下看
+#define dist_u 3        //up,向上看
+
+#define left   0
+#define center 1
+#define right  2
+#define up     3
+
+#define MisEdge  0
+#define Normal   1
+#define UnNormal 2
+
+#define Limit_Range  10
+
+#define Up_LongLine_Left    0
+#define Up_LongLine_Centre  1
+#define Up_LongLine_Right   2
+
+#define Y_start 68
+
+float up_long_sum=0,up_long_num_sum=0;
+uint8_t Min,Up_Long_Line,Min_Line;
+uint8_t Underwind=28,Upwind=22;
+uint8_t Element_Top;
+uint8_t Realwind=40;//真实打脚行
+uint8_t Cut_Line=20;//截断行
+uint8_t LeftLine[row1]={0},RightLine[row1]={0};
+uint8_t RightFindFlag[row1]={0},LeftFindFlag[row1]={0};
+uint8_t fiv_width[row1]={0};//图像每一行的宽度
+uint8_t MidLine[row1]={0};//图像每一行的宽度
+uint8_t Up[188];
+
+uint8_t Up_Long_Line=94;
+uint8_t Up_LongLine_Tactics;
+
+Element_Type Element_Circle_LeftSide  ={Circle_LeftSide,UnLock,0};  //左圆环
+Element_Type Element_Circle_RightSide ={Circle_RightSide,UnLock,0}; //右圆环
+Element_Type Element_Centre_Cross     ={Centre_Cross,UnLock,0};     //中十字
+Element_Type Element_Left_Cross       ={Left_Cross,UnLock,0};       //左入十字
+Element_Type Element_Right_Cross      ={Right_Cross,UnLock,0};      //右入十字
+Element_Type Element_Right_Block      ={ Right_Block,UnLock,0};     //右路障
+Element_Type Element_Left_Block       ={ Left_Block,UnLock,0 };     //路障
+Element_Type Element_Garage           ={Garage,UnLock,0};           //车库
+Element_Type Element_Garage_Out       ={Garage_Out,UnLock,0};       //出库
+Element_Type Element_Ramp             ={Ramp,UnLock,0};             //坡道
+
+//拐点
+Knee_Type Right_Low_Knee      ={Knee_Null,0,0};
+Knee_Type Right_Middle_Knee   ={Knee_Null,0,0};
+Knee_Type Right_Up_Knee       ={Knee_Null,0,0};
+Knee_Type Left_Low_Knee       ={Knee_Null,0,0};
+Knee_Type Left_Middle_Knee    ={Knee_Null,0,0};
+Knee_Type Left_Up_Knee        ={Knee_Null,0,0};
+
+uint8_t Outside_Flag=0;
+
+uint8_t OTSU_Th;
+uint8_t Image_Value = 80;
+
+int Left[70]={89 , 88 , 87 ,  86 ,  86 ,  85 ,  84 ,  83 ,  82 ,  81 ,  80 ,  79 ,  79 ,  78 ,  77 ,  76 ,  75 ,  74 ,  74 ,  73 ,  72 ,  71 ,  70 ,
+        69 ,  68 ,  67 ,  66 ,  65 ,  64 ,  63 ,  62 ,  61 ,  60 ,  59 ,  58 ,  57 ,  56 ,  55 ,  54 ,  53 ,  53 ,  52 ,  51 ,  49 ,  48 ,  48 ,  47 ,
+        46 ,  45 ,  44 ,  44 ,  43 ,  42 ,  41 ,  40 ,  40 ,  38 ,  37 ,  36 ,  35 ,  34 ,  33 ,  32 ,  31 ,  30 ,  29 ,  28 ,  27 ,
+        26 ,  24
+};
+//int Right[70]={100 ,  101 ,  102 ,  103 ,  104 ,  105 ,  106 ,  107 ,  108 ,  109 ,  109 ,  110 ,  111 ,  112 ,  113 ,  114 ,  115 ,  115 ,  116 ,
+//        117 ,  118 ,  119 ,  120 ,  121 ,  122 ,  123 ,  123 ,  124 ,  125 ,  126 ,  127 ,  128 ,  129 ,  129 ,  130 ,  131 ,  132 ,  133 ,  134 ,
+//        135 ,  135 ,  136 ,  137 ,  138 ,  139 ,  140 ,  141 ,  142 ,  143 ,  144 ,  144 ,  145 ,  146 ,  147 ,  148 ,  149 ,  150 ,  151 ,  152 ,
+//        153 ,  154 ,  155 ,  156 ,  157 ,  158 ,  158 ,  159 ,  160 ,  161 ,  163
+//};
+int Right[70]={103 ,  104 ,  105 ,  106 ,  106 ,  107 ,  108 ,  109 ,  110 ,  110 ,  111 ,  112 ,  113 ,  114 ,  115 ,  115 ,  116 ,  117 ,  118 ,
+        119 ,  120 ,  121 ,  122 ,  122 ,  123 ,  124 ,  125 ,  126 ,  127 ,  128 ,  129 ,  130 ,  131 ,  131 ,  132 ,  133 ,  134 ,  135 ,  136 ,
+        137 ,  138 ,  139 ,  140 ,  141 ,  142 ,  142 ,  143 ,  144 ,  145 ,  146 ,  147 ,  148 ,  149 ,  150 ,  151 ,  152 ,  152 ,  153 ,  154 ,
+        155 ,  156 ,  157 ,  157 ,  158 ,  159 ,  160 ,  161 ,  162 ,  163 ,  164
+};
+
+uint8_t Process_Array[row1][col1];
+
+void self_mtv90x_init(void)
+{
+    ips114_init();
+    ips114_show_string(0, 0, "mt9v03x init.");
+    while(1)
+    {
+        if(mt9v03x_init())
+            ips114_show_string(0, 16, "mt9v03x reinit.");
+        else
+            break;
+        system_delay_ms(500);                                     // 短延时快速闪灯表示异常
+    }
+
+}
+
+float Calculation_Angle(int x1,int x2,int x3,int y1, int y2, int y3)    //通过反余弦求角度
+{
+    float angle=0;
+    float a,b,c;
+    int16_t  AB = 0, CA = 0, BC = 0;
+
+    AB=abs(x1-x2);
+    BC=abs(x2-x3);  //B是当前点
+    CA=abs(x1-x3);
+
+    a = sqrt((y3-y2)*(y3-y2) + BC * BC * 1.0);
+    b = sqrt((y3 - y1) * (y3 - y1) + CA * CA * 1.0);
+    c = sqrt((y2 - y1) * (y2 - y1) + AB * AB * 1.0);
+
+    if(a==0||c==0)return 180;
+    if(y3==0&&y2==0)return 180;
+    angle=acos(Limit_ab_float((a*a+c*c-b*b)/(2.0*a*c),-0.999999,0.999999))*180.0/3.1416;//不能到1，不然角度==0,余弦值转换为度数
+    return angle;
+}
+ 
+float Angle_Culculate(uint8_t type,uint8_t start_Line,uint8_t end_Line)
+{
+    if(type==left)
+    {
+        for(uint8_t Y=end_Line;Y>=start_Line;Y--)
+        {
+            int local_x=PerImg_s[Y*188+LeftLine[Y]][1];
+            int local_y=PerImg_s[Y*188+LeftLine[Y]][0];
+            int local_x_u=PerImg_s[(Y-dist_u)*188+LeftLine[Y-dist_u]][1];
+            int local_y_u=PerImg_s[(Y-dist_u)*188+LeftLine[Y-dist_u]][0];
+            int local_x_d=PerImg_s[(Y+dist_d)*188+LeftLine[Y+dist_d]][1];
+            int local_y_d=PerImg_s[(Y+dist_d)*188+LeftLine[Y+dist_d]][0];
+            return Calculation_Angle(local_x_d, local_x, local_x_u, local_y_d, local_y, local_y_u);
+        }
+    }
+    if(type==right)
+    {
+        for(uint8_t Y=end_Line;Y>=start_Line;Y--)
+        {
+            int local_x=PerImg_s[Y*188+RightLine[Y]][1];
+            int local_y=PerImg_s[Y*188+RightLine[Y]][0];
+            int local_x_u=PerImg_s[(Y-dist_u)*188+RightLine[Y-dist_u]][1];
+            int local_y_u=PerImg_s[(Y-dist_u)*188+RightLine[Y-dist_u]][0];
+            int local_x_d=PerImg_s[(Y+dist_d)*188+RightLine[Y+dist_d]][1];
+            int local_y_d=PerImg_s[(Y+dist_d)*188+RightLine[Y+dist_d]][0];
+            return Calculation_Angle(local_x_d, local_x, local_x_u, local_y_d, local_y, local_y_u);
+        }
+    }
+    return 180.0;
+}
+
+//寻找右下拐点
+void Image_Knee_Right_Low_Now(uint8_t type)
+{
+    Right_Low_Knee.Have=Knee_Null;
+    for(uint8_t Y=66;Y>Limit_ab_uint8(Min+dist_u,20,66);Y--)  //Min表示最高行
+    {
+        if(RightFindFlag[Y]==Normal&&(int)RightLine[Y-3]-(int)RightLine[Y]+(int)RightLine[Y+3]-(int)RightLine[Y]>=5&&(int)RightLine[Y-1]-(int)RightLine[Y]>0
+        &&RightFindFlag[Y + 1] == Normal&& (int)RightLine[Y] - (int)RightLine[Y + 1] <= 0&&(int)RightLine[Y] - (int)RightLine[Y+1]>=-3
+        && (int)RightLine[Y] - (int)RightLine[Y + 2] <= 0 &&(int)RightLine[Y] - (int)RightLine[Y + 2] >= -5
+        &&(Angle_Culculate(right,Y,Y)<120.0||(RightLine[Y]-RightLine[Y-1]<-10&&Angle_Culculate(right, Y, Y) < 140.0)))
+        {
+            Right_Low_Knee.Have = Knee_Exist;
+            Right_Low_Knee.X = RightLine[Y];
+            Right_Low_Knee.Y = Y;
+            break; 
+        }
+    }
+}
+
+//寻找右上拐点
+void Image_Knee_Right_Up_Now(uint8_t type)
+{
+    Right_Up_Knee.Have=Knee_Null;
+       if (Right_Low_Knee.Have == Knee_Exist)
+    {
+        for (uint8_t Y = Right_Low_Knee.Y - 1; Y > Limit_ab_uint8(Min + dist_u, 10, 66); Y--)
+        {
+            if (RightFindFlag[Y] == Normal && (int)RightLine[Y - 2] - (int)RightLine[Y] + (int)RightLine[Y + 2] - (int)RightLine[Y] >= 4
+                && (int)RightLine[Y] - (int)RightLine[Y + 1] <= 0 && (int)RightLine[Y - 1] - (int)RightLine[Y] <= 0 && (int)RightLine[Y - 1] - (int)RightLine[Y] >= -3
+                && (int)RightLine[Y - 2] - (int)RightLine[Y] <= 0 && (int)RightLine[Y - 2] - (int)RightLine[Y] >= -5
+                && (Angle_Culculate(right, Y, Y) < 120.0 || (((int)RightLine[Y] - (int)RightLine[Y + 1] < -30)))
+                )
+            {
+                Right_Up_Knee.Have = Knee_Exist;
+                Right_Up_Knee.X = RightLine[Y];
+                Right_Up_Knee.Y = Y;
+                break;
+            }
+        }
+    }
+    else
+    {
+        for (uint8_t Y = 66; Y > Limit_ab_uint8(Min + dist_u, 10, 66); Y--)
+        {
+            if (RightFindFlag[Y] == Normal && (int)RightLine[Y - 2] - (int)RightLine[Y] + (int)RightLine[Y + 2] - (int)RightLine[Y] >= 4
+                && (int)RightLine[Y] - (int)RightLine[Y + 1] <= 0 && (int)RightLine[Y - 1] - (int)RightLine[Y] <= 0 && (int)RightLine[Y - 1] - (int)RightLine[Y] >= -3
+                && (int)RightLine[Y - 2] - (int)RightLine[Y] <= 0 && (int)RightLine[Y - 2] - (int)RightLine[Y] >= -5
+                && (Angle_Culculate(right, Y, Y) < 120.0 || (((int)RightLine[Y] - (int)RightLine[Y + 1] < -30)))
+                )
+            {
+                Right_Up_Knee.Have = Knee_Exist;
+                Right_Up_Knee.X = RightLine[Y];
+                Right_Up_Knee.Y = Y;
+                break;
+            }
+        }
+    }
+}
+
+uint8_t my_adapt_threshold(uint8_t *image,uint16_t col,uint16_t row)
+{
+    #define GrayScale 256
+    uint16_t width = col;
+    uint16_t height = row;
+    int pixelCount[GrayScale];
+    float pixelPRo[GrayScale];
+    int i, j, pixelSum = (width) * (height - 60) / 9;
+    uint8_t threshold = 0;
+    uint8_t* data = image;
+    uint32_t gray_sum = 0;
+    float w0, w1, u0tmp, u1tmp, u0, u1, u, deltaTmp, deltaMax = 0;
+
+    for (i = 0; i < GrayScale; i++)
+    {
+        pixelCount[i] = 0;
+        pixelPRo[i] = 0;
+    }
+    //统计灰度级中每个像素在整幅图像中的个数
+    for ( i = 10; i < height - 50; i += 3)
+    {
+        for (j = 0; j < width; j += 3)
+        {
+            pixelCount[(int)data[i * width + j]]++; //将当前点的像素值作为计数数组值下标
+            gray_sum += (int)data[i * width + j];    //灰度值总和
+        }
+    }
+
+    //计算每个像素值的点在正负图像中的比例
+
+    for ( i = 0; i < GrayScale; i++)
+    {
+        pixelPRo[i] = (float)pixelCount[i] / pixelSum;
+    }
+    
+    w0 = w1 = u0tmp = u1tmp = u0 = u1 = u = deltaTmp = 0;
+    for(j = 0; j < GrayScale; j++)    //当前尝试阈值
+    {
+        w0 += pixelPRo[j];      //背景部分每个灰度值的像素点所占比例之和，即背景部分的比例
+        u0tmp += j * pixelPRo[j];   //背景部分，每个灰度值点的比例
+
+        w1 = 1 - w0;
+        u1tmp = gray_sum / pixelSum - u0tmp;
+
+        u0 = u0tmp / w0;    //背景平均灰度
+        u1 = u1tmp / w1;    //前景平均灰度
+        u = u0tmp + u1tmp;
+        deltaTmp = w0 * pow((u0 - u), 2) + w1 * pow((u1 - u), 2); //计算最大类间方差
+        if(deltaTmp > deltaMax)
+        {
+            deltaMax = deltaTmp;
+            threshold = (uint8_t)j;
+        }
+        if(deltaTmp < deltaMax)
+        {
+            break;
+        }
+    }
+    return threshold;
+}
+
+
+void Binarization(void)
+{
+    uint8_t threshold = 0;
+    threshold = Limit_ab_uint8(my_adapt_threshold(mt9v03x_image[0], MT9V03X_W, MT9V03X_H), Image_Value, 250);
+    OTSU_Th = threshold;
+    float zenyi = 0, zenyj = 0;
+
+    for(int Y = 10; Y < 10 + row1; Y++)
+    {
+        if(Y < 60)
+        {
+            zenyi = 4;
+        }
+
+        for(int X = 0; X < col1; X++)
+        {
+            zenyj = (float)abs(X - 93) / 92.0 * 12.0;
+            Process_Array[Y - 10][X] = (mt9v03x_image[Y][X] > OTSU_Th + zenyi - zenyj) ? 0xff : 0x00; //1白 0黑
+            //使得边缘区域的像素更容易满足 mt9v03x_image[Y][X] > Threshold 的条件，从而更容易被判断为白色（背景）
+        }
+    }
+
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+//  @brief      检查锁
+////
+//  @return     1为无锁，0为有锁 十字地位极低可以被打断
+//-------------------------------------------------------------------------------------------------------------------
+uint8_t Check_Lock(void)
+{
+  uint8_t Lock=1;
+  if(Lock==1)
+  {
+      if(Element_Circle_LeftSide.Lock==Lock) {Lock=0;}
+  }
+
+  if(Lock==1)
+  {
+      if(Element_Circle_RightSide.Lock==Lock) {Lock=0;}
+  }
+
+  if(Lock==1)
+  {
+      if(Element_Left_Cross.Lock==Lock  && Element_Left_Cross.State!=1) {Lock=0;}//！！！！
+  }
+
+  if(Lock==1)
+  {
+      if(Element_Right_Cross.Lock==Lock && Element_Right_Cross.State!=1) {Lock=0;}//！！！！
+  }
+
+
+  if(Lock==1)
+  {
+      if(Element_Garage.Lock==Lock) {Lock=0;}
+  }
+
+  if(Lock==1)
+  {
+      if(Element_Garage_Out.Lock==Lock) {Lock=0;}
+  }
+
+  if(Lock==1)
+  {
+      if(Element_Right_Block.Lock==Lock) {Lock=0;}
+  }
+
+  if(Lock==1)
+  {
+      if(Element_Left_Block.Lock==Lock) {Lock=0;}
+  }
+  if(Lock==1)
+  {
+      if(Element_Ramp.Lock==Lock) {Lock=0;}
+  }
+
+  return Lock;
+}
+
+void GetJumpPointFromDet(uint8_t type,uint8_t Limit,uint8_t Y)
+{
+    uint8_t Limit_R=Limit_ab_uint8((int)LeftLine[Y+1]+Limit,2,185);   //限制左右范围,从右边开始找左边线
+    uint8_t Limit_L = Limit_ab_uint8((int)RightLine[Y + 1] - Limit, 2, 185);//限制左右范围，从左边开始找右边线
+
+    if(type==left)
+    {
+        for(uint8_t X=Limit_R;X>=2;X--)
+        {
+            if (Process_Array[Y][X] == WHITE_Pixie && Process_Array[Y][X - 1] == BLACK_Pixie && Process_Array[Y][X - 2] == BLACK_Pixie)//滤波
+            {
+                LeftLine[Y] = X;
+                LeftFindFlag[Y] = Normal;
+                break;
+            }
+            else if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y][X - 1] == BLACK_Pixie && Process_Array[Y][LeftLine[Y + 1]] == BLACK_Pixie)
+            {
+                LeftLine[Y] = Limit_R;//划为最大值  后面会找出该点的右边值
+                LeftFindFlag[Y] = UnNormal;//判为不正常突变
+                break;
+            }
+            if(X==2)
+            {
+                if(Process_Array[Y][LeftLine[Y+1]]==WHITE_Pixie)//未找到边线，且找寻范围中间时白点
+                {
+                    LeftLine[Y]=0;              //继承上一点的X坐标
+                    LeftFindFlag[Y]=MisEdge;    //判断为丢线
+                }
+            }
+        }
+    }
+    else if(type==right)
+    {
+        for(uint8_t X = Limit_L; X <= 185; X++)
+        {
+            if (Process_Array[Y][X] == WHITE_Pixie && Process_Array[Y][X + 1] == BLACK_Pixie && Process_Array[Y][X + 2] == BLACK_Pixie)//滤波
+            {
+                RightLine[Y] = X;
+                RightFindFlag[Y] = Normal;
+                break;
+            }
+            else if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y][X + 1] == BLACK_Pixie && Process_Array[Y][LeftLine[Y + 1]] == BLACK_Pixie)
+            {
+                RightLine[Y] = Limit_L;//划为最大值  后面会找出该点的右边值
+                RightFindFlag[Y] = UnNormal;//判为不正常突变
+                break;
+            }
+            if(X==2)
+            {
+                if(Process_Array[Y][LeftLine[Y+1]]==WHITE_Pixie)//未找到边线，且找寻范围中间时白点.判断条件保证其在赛道内
+                {
+                    RightLine[Y]=185;              //继承上一点的X坐标
+                    RightFindFlag[Y]=MisEdge;    //判断为丢线
+                }
+            }
+        }
+    }
+}
+
+void Image_Scanning(void)
+{
+    int16 X,Y;
+    uint8_t Limit_L=0,Limit_R=186;    //上扫线限制
+    static uint8_t Old_Center=94;     //中线追踪
+
+    //刷新打脚行，截断行
+    Realwind=Underwind;
+    Cut_Line=10;
+    if(Element_Garage_Out.Lock==Lock)
+    {
+        RightLine[Y_start]=(uint8_t)Right[67];
+        LeftLine[Y_start]=(uint8_t)Left[67];
+        RightFindFlag[Y_start]=1;
+        LeftFindFlag[Y_start]=1;
+    }
+    else
+    {
+        for(Y=Y_start;Y>Y_start-5;Y--)
+        {
+            RightLine[Y]=186;
+            RightFindFlag[Y]=0;
+            for (X=Old_Center;X<col1-2;X++)
+            {
+                if(Process_Array[Y][X]==BLACK_Pixie&&Process_Array[Y][X+1]==BLACK_Pixie)
+                {
+                    RightLine[Y]=(uint8_t)X;
+                    RightFindFlag[Y]=1;
+                    break;
+                }   
+            }
+            LeftLine[Y]=0;
+            LeftFindFlag[Y]=0;
+            for (X=Old_Center;X>2;X--)      //扫描方向很重要
+            {
+                if(Process_Array[Y][X]==BLACK_Pixie&&Process_Array[Y][X-1]==BLACK_Pixie)
+                {
+                    LeftLine[Y]=(uint8_t)X;
+                    LeftFindFlag[Y]=1;
+                    break;
+                }   
+            }
+            //实时赛宽
+            fiv_width[Y]=(uint8_t)Limit_ab_int((int)RightLine[Y]-(int)LeftLine[Y],0,186);
+            //中线策略
+            MidLine[Y] = (uint8_t)(((int)LeftLine[Y] + (int)RightLine[Y]) / 2);
+            Old_Center=(uint8_t)MidLine[Y];
+        }
+
+    }
+    Min=Y_start;
+    Limit_L=LeftLine[Y_start],Limit_R=RightLine[Y_start];
+    for(X=0;X<=Limit_L;X++)
+    {
+        Up[X]=Y_start;
+    }
+    for(X=col1-1;X>=Limit_R;X--)
+    {
+        Up[X]=Y_start;
+    }
+    up_long_sum=0.01;
+    up_long_num_sum=0.01;
+    if(Check_Lock()==1||Element_Garage_Out.Lock==Lock)  //无元素时跑线
+    {
+        for(X=Limit_L+1;X<Limit_R-1;X++)
+        {
+            Up[X] = 1;
+            for (Y = Y_start - 1; Y > 1; Y--)
+            {
+                if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y - 1][X] == BLACK_Pixie)
+                {
+                    Up[X] = (uint8_t)Limit_ab_int((int)Y, 1, Y_start-1);
+                    if (Up[X] < Min)
+                    {
+                        Min = Up[X];//找出最高行
+                        Min_Line =(uint8_t) X;
+                    }
+                    break;
+                }
+            }
+            if(X>70 && X<118)
+            {
+                up_long_sum+=(float)Up[X];
+                up_long_num_sum+=1.0;
+            }
+        }
+        for(Y=Y_start-1;Y>Min;Y--) //根据打脚行扫线
+        {
+            GetJumpPointFromDet(left,Limit_Range,(uint8_t)Y);
+            GetJumpPointFromDet(right,Limit_Range,(uint8_t)Y);
+            if(LeftLine[Y]==UnNormal)
+            {
+                for(X=LeftLine[Y]+1;X<Limit_ab_uint8(RightLine[Y],2,185);X++)   //从左到右扫描
+                {
+                    if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y][X + 1] == WHITE_Pixie && Process_Array[Y][X + 2] == WHITE_Pixie) 
+                    {
+                        LeftLine[Y] = X + 1;
+                        LeftFindFlag[Y] = Normal;
+                        break;
+                    }
+                    else if (Process_Array[Y][X] == WHITE_Pixie)
+                    {
+                        LeftLine[Y] = (uint8_t)X;
+                        LeftFindFlag[Y] = Normal;
+                        break;
+                    }
+                }
+            }
+            else if(RightLine[Y]==UnNormal)
+            {
+                for(X=RightLine[Y]-1;X>Limit_ab_uint8(LeftLine[Y],2,185);X--)   //从右到左扫描
+                {
+                    if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y][X - 1] == WHITE_Pixie && Process_Array[Y][X - 2] == WHITE_Pixie) 
+                    {
+                        LeftLine[Y] = (uint8_t)X - 1;
+                        LeftFindFlag[Y] = Normal;
+                        break;
+                    }
+                    else if (Process_Array[Y][X] == WHITE_Pixie)
+                    {
+                        RightLine[Y] = (uint8_t)X;
+                        RightFindFlag[Y] = Normal;
+                        break;
+                    }
+                }
+            }
+            fiv_width[Y]=RightLine[Y]-LeftLine[Y];
+            MidLine[Y]=(uint8_t)(((int)LeftLine[Y]+(int)RightLine[Y])/2);
+        }
+        Old_Center=(uint8_t)MidLine[67];
+        for ( Y=Min; Y>=0; Y--) //刷新并清理顶端扫描数据
+        {
+            LeftLine[Y]=0;
+            LeftFindFlag[Y]=MisEdge;
+            RightLine[Y]=186;
+            RightFindFlag[Y]=MisEdge;
+            fiv_width[Y]=0;
+        }
+        
+    }
+    else//有元素时自锁避免元素干扰扫线
+    {
+        uint8_t Mid=Limit_ab_uint8((RightLine[Y_start]+LeftLine[Y_start])/2,0,186);
+        Min_Line=94;
+        if(Up_LongLine_Tactics==Up_LongLine_Left)
+        {
+            for(X=RightLine[Y_start];X>LeftLine[Y_start];X--) //向上找，从右到左
+            {
+                Up[X]=1;//初始化所有的起始点
+                for(Y=row1-1;Y>1;Y--)
+                {
+                    if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y - 1][X] == BLACK_Pixie)   //避免一直为1
+                    {
+                        Up[X] = Limit_ab_uint8((uint8_t)Y, 1, Y_start-1);
+                        break;
+                    }
+                }
+                //赛道引导线会尽量局左
+                /*if (X < RightLine[Y_start] - (RightLine[Y_start] - LeftLine[Y_start]) / 3 && X >LeftLine[Y_start])*/
+                if(X<Mid&&X>LeftLine[Y_start])
+                {
+                    //绝对高||合理误差内偏左
+                    if ((X < Mid && Up[X] <= Min) || (abs((int)Up[X] - (int)Min) < 2 && X < Min_Line))
+                    {
+                        //二次判断
+                        if(Up[X]<=Min)
+                        {
+                            Min=Up[X];
+                        }
+                        Min_Line = Limit_ab_uint8((uint8_t)X, 0, 186);
+                    }
+
+                }
+                if(X>70 && X<118)
+                {
+                up_long_sum+=(float)Up[X];
+                up_long_num_sum+=1.0;
+                }
+            }
+           Up_Long_Line = Limit_ab_uint8(Min_Line, 3, 184);//确定赛道引导线，用于转向
+           Min = Up[Up_Long_Line];//改变顶
+        }
+
+        else if(Up_LongLine_Tactics==Up_LongLine_Right)
+        {
+            for(X=LeftLine[Y_start];X<RightLine[Y_start];X++) //向上找，从左到右
+            {
+                Up[X]=1;//初始化所有的起始点
+                for(Y=row1-1;Y>1;Y--)
+                {
+                    if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y - 1][X] == BLACK_Pixie)   //避免一直为1
+                    {
+                        Up[X] = Limit_ab_uint8((uint8_t)Y, 1, Y_start-1);
+                        break;
+                    }
+                }
+                //赛道引导线会尽量局右
+                /*if (X < RightLine[Y_start] - (RightLine[Y_start] - LeftLine[Y_start]) / 3 && X >LeftLine[Y_start])*/
+                if(X>Mid&&X<RightLine[Y_start])
+                {
+                    //绝对高||合理误差内偏左
+                    if ((X >Mid && Up[X] <= Min) || (abs((int)Up[X] - (int)Min) < 2 && X > Min_Line))
+                    {
+                        //二次判断
+                        if(Up[X]<=Min)
+                        {
+                            Min=Up[X];
+                        }
+                        Min_Line = Limit_ab_uint8((uint8_t)X, 0, 186);
+                    }
+
+                }
+                if(X>70 && X<118)   //对中心区域进行行高统计
+                {
+                up_long_sum+=(float)Up[X];
+                up_long_num_sum+=1.0;
+                }
+            }
+           Up_Long_Line = Limit_ab_uint8(Min_Line, 3, 184);//确定赛道引导线，用于转向
+           Min = Up[Up_Long_Line];//改变顶
+        }
+        else    //其余策略为中
+        {
+            for(X=RightLine[Y_start];X>LeftLine[Y_start];X--)
+            {
+                Up[X]=1;
+                for (Y = row1 - 2; Y > 1; Y--)
+                {
+                    if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y - 1][X] == BLACK_Pixie)
+                    {
+                        Up[X] = Limit_ab_uint8((uint8_t)Y, 1, Y_start-1);
+                        break;
+                    }
+                } 
+                if(X<RightLine[Y_start]-(RightLine[Y_start]-LeftLine[Y_start])/3&&X>LeftLine[Y_start]+(RightLine[Y_start]-LeftLine[Y_start])/3)   //控制在中间的1/3区域以内
+                {
+                    if(Up[X]<Min||(Up[X]==Min&&abs(94-(int)X)<abs(94-(int)Min_Line)))   //如果更高或者更靠近中点
+                    {
+                        Min_Line=Up[X];
+                        Min_Line=Limit_ab_uint8((uint8_t)X,0,186);
+                    }
+                }
+                if(X>70 && X<118)
+                {
+                    up_long_sum+=(float)Up[X];
+                    up_long_num_sum+=1.0;
+
+                }
+            }
+            Up_Long_Line = Limit_ab_uint8(Min_Line, 3, 184);//确定赛道引导线
+            Min = Up[Up_Long_Line];//改变顶
+        }
+        for(Y=row1-1;Y>Up[Up_Long_Line];Y--)
+        {
+            RightLine[Y] = 186;
+            RightFindFlag[Y] = 0;
+            for (X = Up_Long_Line; X < col1 - 2; X++)
+            {
+                //找到边界  右
+                if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y][X + 1] == BLACK_Pixie)
+                {
+                    RightLine[Y] = Limit_ab_uint8((uint8_t)X, 0, 186);
+                    RightFindFlag[Y] = 1;
+                    break;
+                }
+
+            }
+            LeftLine[Y] = 0;
+            LeftFindFlag[Y] = 0;
+            for (X = Up_Long_Line; X > 1; X--)
+            {
+                if (Process_Array[Y][X] == BLACK_Pixie && Process_Array[Y][X - 1] == BLACK_Pixie)
+                {
+                    LeftLine[Y] = Limit_ab_uint8((uint8_t)X, 0, 186);
+                    LeftFindFlag[Y] = 1;
+                    break;
+                }
+            }
+                        //实时赛宽
+            fiv_width[Y] = Limit_ab_uint8(RightLine[Y] - LeftLine[Y], 0, 186);
+            //中线策略
+            MidLine[Y] = (uint8_t)(((int)LeftLine[Y] + (int)RightLine[Y]) / 2);
+        }
+        Old_Center=(uint8_t)Limit_ab_int(MidLine[67],2,184);
+     }
+     up_long_sum/=up_long_num_sum;      //平均行高
+}
+
+//修复丢线情况
+void Repair_Virsual(void)
+{
+    for (uint8_t Y = Y_start; Y > Min; Y--)
+    {
+        if (LeftFindFlag[Y] == 0 && RightFindFlag[Y]==1)
+        {
+            int error = (int)RightLine[Y] - (int)Right[Y];
+            MidLine[Y] = (uint8_t)Limit_ab_int((int)93+error*2,0,186);
+        }
+        else if(LeftFindFlag[Y] == 1 && RightFindFlag[Y] == 0)
+        {
+            int error = (int)LeftLine[Y] - (int)Left[Y];
+            MidLine[Y] = (uint8_t)Limit_ab_int((int)93 + error*2, 0, 186);
+            //printf("error:%d\n", error);
+        }
+        else
+        {
+            int error = (int)LeftLine[Y] - (int)Left[Y] + (int)RightLine[Y] - (int)Right[Y];
+            MidLine[Y] = (uint8_t)Limit_ab_int((int)93 + error , 0, 186);
+           // MidLine[Y] = ((int)RightLine[Y] + (int)LeftLine[Y]) / 2;
+        }
+    }
+}
+
+// 假设您的图像处理已经得到了以下数组数据（Y 坐标 0-Y_start）：
+// extern uint8 LeftLine[row1], RightLine[row1]; // 左右边界线的 X 坐标
+// extern int MidLine[row1];                     // 中线的 X 坐标
+// extern uint8 Min;                            // 找到的最远行 (顶行)
+
+// 假设屏幕/图像宽度为 col1 (例如 188)
+#define col1 188
+
+// 图像显示点函数（需要您自行实现，例如调用 ips114_draw_pixel）
+// void draw_pixel(uint8_t x, uint8_t y, uint8_t color);
+
+void display_lane_lines(void)
+{
+    uint8_t Y;
+    uint8_t LeftX, RightX, MidX;
+    uint8_t Lock_display;
+
+    Lock_display=Check_Lock();
+    // 从底部（Y=Y_start）开始向上（Y=0）遍历，但只画 Min 行以下的部分
+    for (Y = Y_start; Y > 1; Y--)
+    {
+        // 1. 获取当前行线的 X 坐标（需要进行限制，避免数组越界）
+        LeftX = Limit_ab_uint8(LeftLine[Y], 0, col1 - 1);
+        RightX = Limit_ab_uint8(RightLine[Y], 0, col1 - 1);
+        MidX = Limit_ab_uint8(MidLine[Y], 5, col1 - 5);
+
+        // 2. 绘制左边界线（假设用亮灰色 100 表示）
+        // 只有当 LeftFindFlag[Y] == Normal 或 UnNormal 时才绘制，这里简化为判断 LeftLine[Y] > 0
+        if (LeftLine[Y] > 0)
+        {
+            ips114_draw_point(LeftX, Y, RGB565_BLUE);
+            ips114_draw_point(LeftX + 1, Y, RGB565_BLUE);
+            ips114_draw_point(LeftX, Y + 1, RGB565_BLUE);
+            ips114_draw_point(LeftX + 1, Y + 1, RGB565_BLUE);
+            // 示例：使用您的显示函数来画点
+        }
+
+        // 3. 绘制右边界线（假设用稍暗的灰色 50 表示）
+        if (RightLine[Y] < col1 - 1)
+        {
+            ips114_draw_point(RightX, Y, RGB565_BLUE);
+            ips114_draw_point(RightX + 1, Y, RGB565_BLUE);
+            ips114_draw_point(RightX, Y + 1, RGB565_BLUE);
+            ips114_draw_point(RightX + 1, Y + 1, RGB565_BLUE);
+            // 示例：使用您的显示函数来画点
+        }
+
+        // 4. 绘制中线（假设用白色 255 表示，让它最显眼）
+         //ips114_draw_point(MidX, Y, RGB565_BROWN);
+
+        // 示例：使用您的显示函数来画点
+        // --- 绘制打脚行（Realwind）上的特殊点 ---
+
+        ips114_draw_point(MidX, Y, RGB565_RED);
+        ips114_draw_point(MidX + 1, Y, RGB565_RED);
+        ips114_draw_point(MidX, Y + 1, RGB565_RED);
+        ips114_draw_point(MidX + 1, Y + 1, RGB565_RED);
+
+        if (Y == Realwind)
+        {
+            ips114_draw_point(MidX, Y, RGB565_BLUE);
+            ips114_draw_point(MidX + 2, Y, RGB565_BLUE);
+            ips114_draw_point(MidX - 2, Y, RGB565_BLUE);
+            ips114_draw_point(MidX, Y+1, RGB565_BLUE);
+            ips114_draw_point(MidX + 1, Y+1, RGB565_BLUE);
+        }
+    }
+
+    // --- 绘制顶行（Min）上的引导点 ---
+    if (Min > 0 && Min < Y_start)
+    {
+         ips114_draw_point(Up_Long_Line, Min, RGB565_GREEN); // 黑色大点标记最远引导点
+         ips114_draw_point(Up_Long_Line + 1, Min, RGB565_GREEN);
+    }
+
+   ips114_show_int(50,70,MidX,3);
+   ips114_show_int(50,90,Lock_display,3);
+   ips114_show_int(50,110,LeftLine[Y_start],3);
+   ips114_show_int(80,70,RightLine[Y_start],3);
+   ips114_show_int(80,90,Lock_display,3);
+   //ips114_show_int(80,110,Min,3);
+}
+
+float control_error;
+int Control_Mid;
+
+float P_Speed_value[7] = {  15, 18,  20, 22, 24, 25 ,27};      //上线论域
+float P_Realwind_value[7]={  15, 18,  20, 22, 24, 25 ,27};   //打脚行上线论域
+float D_Speed_value[7] = {  0, 4,6,8,12,15,18};//偏差变化论域
+
+//真实打脚行处理
+void Realwind_Process(void)
+{
+    if(Element_Circle_LeftSide.Lock==Lock||Element_Circle_RightSide.Lock==Lock)
+    {
+        Realwind=Underwind;
+        if(Realwind<Element_Top)
+        {
+            Realwind=(uint8_t)Limit_ab_int(Element_Top+2,25,69);
+        }       
+    }
+    else
+    {
+        Realwind=Underwind-(uint8_t)Fuzzy_single(P_Realwind_value,D_Speed_value,Underwind-Upwind, rule_single_sp[0],up_long_sum,0); //up_long_sum是在image_scannoiing里求出的平均行高
+        if(Realwind<=Min)
+        Realwind=Limit_ab_uint8(Min+1,Upwind,69);
+    }
+    if(Element_Right_Block.Lock==Lock||Element_Left_Block.Lock==Lock)
+    {
+        if(Element_Right_Block.Lock==Lock)  //右避障用左偏差
+        {
+            control_error=1.2*((float)(((int)LeftLine[Realwind]-(int)Left[Realwind])*2))/1.0; 
+        }
+        else if(Element_Left_Block.Lock==Lock)//左避障用右偏差
+        {
+            control_error=1.2*((float)((int)RightLine[Realwind]-(int)Right[Realwind])*2.0)/1.0;//
+        }
+    }else if(Element_Garage.Lock==Lock) //遇到车库
+    {
+        Realwind=25;
+        if(RightFindFlag[Realwind]==Normal && LeftFindFlag[Realwind]==Normal)
+        {
+            control_error=1.0*((float)((int)RightLine[Realwind]-(int)Right[Realwind]+(int)LeftLine[Realwind]-(int)Left[Realwind]))/1.0;//右线离右真实线偏差
+        }
+        else if(RightFindFlag[Realwind]==Normal && LeftFindFlag[Realwind]==MisEdge)
+        {
+            control_error=1.0*((float)((int)RightLine[Realwind]-(int)Right[Realwind])*2.0)/1.0;//
+        }
+        else if(RightFindFlag[Realwind]==MisEdge && LeftFindFlag[Realwind]==Normal)
+        {
+            control_error=1.0*((float)(((int)LeftLine[Realwind]-(int)Left[Realwind])*2))/1.0;//
+        }
+        else if(RightFindFlag[Realwind]==MisEdge && LeftFindFlag[Realwind]==MisEdge)
+        {
+            control_error=0;//
+        }
+    }
+    else if(Element_Ramp.Lock==Lock)
+    {
+               //上坡减速
+        if(Element_Ramp.State==1)
+        {
+            Realwind=60;
+        }
+        //坡中减速
+        else if(Element_Ramp.State==2)
+        {
+            Realwind=60;
+        }
+        //下坡加速
+        else if(Element_Ramp.State==3)
+        {
+            Realwind=70;
+        }
+    }
+    else{
+        if(RightFindFlag[Realwind]==Normal && LeftFindFlag[Realwind]==Normal)
+        {
+            control_error=1.0*((float)((int)RightLine[Realwind]-(int)Right[Realwind]+(int)LeftLine[Realwind]-(int)Left[Realwind]))/1.0;//右线离右真实线偏差
+        }
+        else if(RightFindFlag[Realwind]==Normal && LeftFindFlag[Realwind]==MisEdge)
+        {
+            control_error=1.0*((float)((int)RightLine[Realwind]-(int)Right[Realwind])*2.0)/1.0;//
+        }
+        else if(RightFindFlag[Realwind]==MisEdge && LeftFindFlag[Realwind]==Normal)
+        {
+            control_error=1.0*((float)(((int)LeftLine[Realwind]-(int)Left[Realwind])*2))/1.0;//
+        }
+        else if(RightFindFlag[Realwind]==MisEdge && LeftFindFlag[Realwind]==MisEdge)
+        {
+            control_error=0;//
+        }
+    }
+     Control_Mid = MidLine[Realwind];
+     ips114_show_int(110,90,control_error,3);
+     ips114_show_int(110,110,Realwind,3);
+
+}
+
+uint8_t L_Start,R_Start;//左右起始行
+uint8_t lost_left_times,lost_right_times;
+
+void  Cal_StartLine(uint8_t cut)
+{
+    int16 Y;
+    uint8_t Left_Start_Find=0,Right_Start_Find=0;
+    L_Start=0;
+    R_Start=0;
+    lost_left_times=0;
+    lost_right_times=0;
+    for(Y=69;Y>cut;Y--)
+    {
+        if(LeftFindFlag[Y]==0)
+        {
+            lost_left_times++;
+            if(Left_Start_Find==0)
+            L_Start++;
+        }
+        else
+        {
+            Left_Start_Find=1;
+        }
+
+    }
+    for(Y=69;Y>cut;Y--)
+    {
+        if(RightFindFlag[Y]==0)
+        {
+            lost_right_times++;
+            if(Right_Start_Find==0)
+            R_Start++;
+        }
+        else
+        {
+            Right_Start_Find=1;
+        }
+    }
+}
+
+
+void self_mtv90x_process(void)
+{
+    if(mt9v03x_finish_flag)
+    {
+        //ips114_displayimage03x((const uint8_t *)mt9v03x_image, MT9V03X_W, MT9V03X_H);        // 显示原始图像
+        Binarization();
+        Image_Scanning();
+        Repair_Virsual();
+        Cal_StartLine(Min);
+        Realwind_Process();
+        //ips114_displayimage03x((const uint8_t *)Process_Array, MT9V03X_W, MT9V03X_H);
+        ips114_show_gray_image(0, 0, (const uint8_t *)Process_Array, col1, row1, col1, row1, 0);       // 显示灰度图像
+        display_lane_lines();
+
+        if(Element_Garage.Lock==UnLock)
+        {
+            if(Min>66)
+            {
+                Outside_Flag=1;
+                ips114_show_int(80,110,1,1);
+            }
+            else
+            {
+                Outside_Flag=0;
+            }
+
+        }
+        mt9v03x_finish_flag = 0;
+    }
+}
+ 

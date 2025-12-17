@@ -3,6 +3,8 @@
 
 #include "Self_BSP.h"
 
+
+
 extern float up_long_sum,up_long_num_sum;
 extern uint8_t Realwind;
 extern float control_error;
@@ -97,6 +99,11 @@ extern Element_Type Element_Left_Block;     //路障
 extern Element_Type Element_Garage;           //车库
 extern Element_Type Element_Garage_Out;       //出库
 extern Element_Type Element_Ramp;             //坡道
+
+extern uint8_t LeftLine[];
+extern uint8_t RightLine[];
+extern uint8_t MidLine[];
+extern uint8_t Up[];
 //打脚行确定看哪里，而误差值确定转向程度
 
 void self_mtv90x_init(void);

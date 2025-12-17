@@ -7,4 +7,6 @@ extern uint8_t Time_Out;
 extern uint8_t Cargo_flag;
 extern uint8_t Outside_Flag;
 
+void Servo_Control(float error);
+
 #endif // DEBUG
